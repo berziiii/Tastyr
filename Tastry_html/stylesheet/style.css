@@ -1,0 +1,93 @@
+/* Applilcation Style */
+a {
+  text-decoration: none;
+  color: #fff;
+  cursor: pointer; }
+
+a:hover {
+  color: #fff;
+  text-decoration: none; }
+
+body {
+  font-size: 16pt;
+  font-color: #000;
+  background-color: #fff; }
+
+.navigation-bar {
+  background-color: rgba(0, 0, 0, 0.4);
+  font-size: 1em;
+  position: fixed;
+  top: 0px;
+  font-weight: 600;
+  color: #fff;
+  width: 100%;
+  padding: 10px 0px; }
+
+.logo {
+  left: 5%;
+  font-size: 1.25em; }
+
+.nav-links {
+  display: inline;
+  float: right; }
+
+.nav-link {
+  color: #fff;
+  padding: 10px 10px;
+  float: left;
+  font-size: .65em; }
+
+.sign-in {
+  color: #fff;
+  padding: 5px 10px;
+  font-size: 1.25em;
+  border-radius: 2px;
+  border: solid 1px #fff; }
+
+/* Home Styles */
+.home-container, choice-container {
+  width: 100%; }
+
+.home-hero-container {
+  width: 100%;
+  background: url(../images/fresh-home.png) no-repeat center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover; }
+
+.home-hero {
+  background-color: rgba(0, 0, 0, 0.25);
+  height: 100%;
+  width: 100%;
+  text-align: center; }
+
+.home-search {
+  padding: 180px 0px;
+  width: 100%; }
+
+.hero-title {
+  font-size: 3em;
+  color: #fff;
+  font-weight: 600;
+  padding: 0px 0px 50px 0px; }
+
+input {
+  border-radius: 5px;
+  border: solid 2px #1abc9c; }
+
+.search-go {
+  border-radius: 5px;
+  border: solid 2px #1abc9c; }
+
+/* Applicaiton Styles */
+.footer-container {
+  width: 100%;
+  background-color: #000;
+  color: #fff;
+  text-align: center;
+  font-size: 1.5em;
+  padding: 10px 0px;
+  margin: 0px; }
+
+/*# sourceMappingURL=style.css.map */

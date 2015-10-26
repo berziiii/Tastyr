@@ -1,0 +1,115 @@
+/* Applilcation Style */
+
+$black: #000;
+$white: #fff;
+$teal: #1abc9c;
+
+a {
+	text-decoration: none;
+	color: $white;
+	cursor: pointer;
+}
+
+a:hover {
+	color: $white;
+	text-decoration: none;
+}
+
+body {
+	font-size: 16pt;
+	font-color: $black;
+	background-color: $white;
+}
+
+.navigation-bar {
+	background-color: rgba(0, 0, 0, .4);
+	font-size: 1em;
+	position: fixed;
+	top: 0px;
+	font-weight: 600;
+	color: $white;
+	width: 100%;
+	padding: 10px 0px;
+}
+
+.logo {
+	left: 5%;
+	font-size: 1.25em;
+}
+
+.nav-links {
+	display: inline;
+	float: right;
+}
+
+.nav-link {
+	color: $white;
+	padding: 10px 10px;
+	float: left;
+	font-size: .65em;
+}
+
+.sign-in {
+	color: $white;
+	padding: 5px 10px;
+	font-size: 1.25em;
+	border-radius: 2px;
+	border: solid 1px $white;
+}
+
+
+/* Home Styles */
+
+.home-container, choice-container {
+	width: 100%;
+}
+
+.home-hero-container {
+	width: 100%;
+	background: url(../images/fresh-home.png) no-repeat center;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+  	background-size: cover;
+}
+
+.home-hero {
+	background-color: rgba(0, 0, 0, .25);
+	height: 100%;
+  	width: 100%;
+  	text-align: center;
+}
+
+.home-search {
+	padding: 180px 0px;
+	width: 100%;
+}
+
+.hero-title {
+	font-size: 3em;
+	color: $white;
+	font-weight: 600;
+	padding: 0px 0px 50px 0px;
+}
+
+input {
+	border-radius: 5px;
+	border: solid 2px $teal;
+}
+
+.search-go {
+	border-radius: 5px;
+	border: solid 2px $teal;
+}
+
+/* Applicaiton Styles */
+
+.footer-container {
+	width: 100%;
+	background-color: $black;
+	color: $white;
+	text-align: center;
+	font-size: 1.5em;
+	padding: 10px 0px;
+	margin: 0px;
+}
