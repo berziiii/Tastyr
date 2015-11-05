@@ -27,19 +27,29 @@
 				    	<div class="nav-link">
 							<%= link_to "About", "/about/" %>
 						</div>
-						<div class="nav-link">
-							<%= link_to "Sign up", new_user_registration_path %>
-						</div>
-						<div class="nav-link">
-							<a class="search" href="<%= search_url %>">
-								<span class="glyphicon glyphicon-search" aria-hidden="true"></span>
-							</a>
-						</div>
 						<% if user_signed_in? %>
+							<div class="nav-link">
+								<%= link_to "Profile", profile_show_path  %>
+							</div>
+							<div class="nav-link">
+								<%= link_to "Dashboard",  %>
+							</div>
+							<div class="nav-link">
+								<a class="search" href="<%= search_url %>">
+									<span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+								</a>
+							</div>
 					      	<div class="nav-link">
-					      		<%= link_to "Sign out", destroy_user_session_path, method: :delete %>
+					      		<%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
 					      	</div>
 					    <% else %>
+				    		<div id="register" class="nav-link"><a>Register</a>
+							</div>
+							<div class="nav-link">
+								<a class="search" href="<%= search_url %>">
+									<span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+								</a>
+							</div>
 							<a class="sign-in" href="<%= new_user_session_url %>">Sign In</a>
 					    <% end %>
 					</div>
@@ -47,6 +57,17 @@
 			</div>
 		</nav>
 	</header>
+	<div id="modal" class="modal fade">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<div class="modal-body">
+						<%= render "devise/registrations/new", locals: { resource: :user, :resource_name => @resource }  %>
+					</div>
+				</div>
+			</div><!-- /.modal-content -->
+		</div><!-- /.modal-dialog -->
+	</div><!-- /.modal -->
 
 <%= yield %>
 

@@ -1,0 +1,12 @@
+<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 profile-column">
+	<fieldset>
+		<h1 class="profile-form-title">Diets</h1>
+
+		<#% @diet.each do |e| %>
+			<div class="profile-radio-field">
+				<#%= check_box_tag :diet, e.name %> <#%= e.name %>
+			</div>
+		<#% end %>
+
+	</fieldset>
+</div>

@@ -15,3 +15,8 @@
 //= require bootstrap-sprockets
 //= require turbolinks
 //= require_tree .
+
+
+$('#register').on('click', function () {
+  $('#modal').modal('show')
+});

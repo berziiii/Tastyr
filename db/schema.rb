@@ -11,7 +11,33 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151024181233) do
+ActiveRecord::Schema.define(version: 20151103194448) do
+
+  create_table "allergies", force: :cascade do |t|
+    t.string  "name"
+    t.integer "profile_id"
+  end
+
+  add_index "allergies", ["profile_id"], name: "index_allergies_on_profile_id"
+
+  create_table "diets", force: :cascade do |t|
+    t.string  "name"
+    t.integer "profile_id"
+  end
+
+  add_index "diets", ["profile_id"], name: "index_diets_on_profile_id"
+
+  create_table "profiles", force: :cascade do |t|
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "diet"
+    t.string   "allergy"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "user_id"
+  end
+
+  add_index "profiles", ["user_id"], name: "index_profiles_on_user_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -26,8 +52,6 @@ ActiveRecord::Schema.define(version: 20151024181233) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
-    t.string   "first_name"
-    t.string   "last_name"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

@@ -1,0 +1,45 @@
+<div class="profile-container">
+	<div class="profile-wrapper">
+		<h1 class="profile-title">Create a new Profile</h1>
+		<div class="row">
+			<div class="col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3 col-xs-12 profile-column">
+				<%= form_for @profile do |f| %>
+				<fieldset>
+					<h1 class="profile-form-title">Profile Information</h1>
+					<div class="profile-field">
+						<%= f.text_field :first_name, autofocus: true, :placeholder => "First Name"  %>
+					</div>
+					<div class="profile-field">
+						<%= f.text_field :last_name, autofocus: true, :placeholder => "Last Name" %>
+					</div>
+				</fieldset>
+				<div class="create-profile">
+					<%= f.submit :value => "Next" %>
+					<% end %>
+				</div>
+			</div>
+			<!-- <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 profile-column">
+				<fieldset>
+					<h1 class="profile-form-title">Diets</h1>
+
+					<#% @diet.each do |e| %>
+						<div class="profile-radio-field">
+							<#%= check_box_tag :diet, e.name %> <#%= e.name %>
+						</div>
+					<#% end %>
+
+				</fieldset>
+			</div>
+			<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 profile-column">
+				<fieldset>
+					<h1 class="profile-form-title">Allergies</h1>
+					<#% @allergy.each do |e| %>
+						<div class="profile-radio-field">
+							<#%= f.check_box :allergy %> <#%= e.name %>
+						</div>
+					<#% end %>
+				</fieldset>
+			</div> -->
+		</div>
+	</div>
+</div>

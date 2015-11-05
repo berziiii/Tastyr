@@ -5,3 +5,6 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+diets = Diet.create([{name: "Paleo"}, {name: "Pescetarian"}, {name: "Vegetarian"}, {name: "Lacto Vegetarian"}, {name: "Ovo Vegetarian"}, {name: "Vegan"}])
+allergies = Allergy.create([{name: "Sesame"}, {name: "Tree Nut"}, {name: "Seafood"}, {name: "Peanut"}, {name: "Soy"}, {name: "Egg"}, {name: "Wheat"}, {name: "Gluten"}, {name: "Dairy"}, {name: "Dairy"}, {name: "Sulfite"}])

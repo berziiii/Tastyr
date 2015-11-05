@@ -50,6 +50,12 @@ $light-blue: #78B5C7
 $blue: #4596AB
 $dark-blue: #146C82
 
+.hide
+	display: none
+
+.show
+	display: visible
+
 .row
 	margin: 0px
 
@@ -88,9 +94,11 @@ body
 	left: 5%
 	font-size: 1.25em
 	padding: 5px 20px 0px 20px
+	font-family: NexaRust
 
 .R
 	color: $orange
+	font-family: NexaRust
 
 .nav-links
 	display: inline
@@ -116,10 +124,20 @@ body
 	background-color: $teal
 	transition: background-color .2s ease-out
 	cursor: pointer
-	color: $carbon
+	color: $white
 
 .search
 	font-size: 1.5em
+
+.modal-dialog
+	margin-top: 15%
+
+.modal-content
+	background-color: rgba(0, 0, 0, .8)
+	border: 1px solid $white
+	text-align: center
+	color: $white
+	font-size: 1em
 
 
 /* Applicaiton Styles */
