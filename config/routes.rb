@@ -12,8 +12,6 @@ Rails.application.routes.draw do
 
   resources :allergies
 
-  get 'users/:user_id/dashboard' => 'dashboard#index'
-
   get '/profiles' => 'profiles#new'
 
   get '/about' => 'pages#about'
@@ -21,6 +19,10 @@ Rails.application.routes.draw do
   get '/search' => 'pages#search_form'
 
   post '/search' => 'pages#search'
+
+  get '/dashboard' => 'dashboard#index'
+
+  post '/dashboard' => 'dashboard#dashboard'
 
 
   # The priority is based upon order of creation: first created -> highest priority.

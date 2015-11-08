@@ -1,0 +1,11 @@
+<div <% @search_id %> >
+	<% if @recipe && @search_id == @form_id %>
+		<a href="<%= @recipe["source_url"] %>" target="_blank">
+			<div style="background:url(<%= @recipe["image_url"] %>) no-repeat center;-webkit-background-size:cover;-moz-background-size:cover;-o-background-size:cover;background-size:cover;padding:0px" class="col-lg-12 col-md-12 col-sm-12 col-xs-12 search-grid">
+				<div class="search-cover">
+					<h3><%= @recipe["title"] %></h3>
+				</div>
+			</div>
+		</a>
+	<% end %>
+</div>

@@ -20,3 +20,17 @@
 $('#register').on('click', function () {
   $('#modal').modal('show')
 });
+
+$('#meal-3-button').on('click', function () {
+	$('#meal-5').addClass('hide');
+	$('#meal-3').removeClass('hide');
+	$('#meal-3-text').addClass('active');
+	$('#meal-5-text').removeClass('active');
+});
+
+$('#meal-5-button').on('click', function () {
+	$('#meal-3').addClass('hide');
+	$('#meal-5').removeClass('hide');
+	$('#meal-5-text').addClass('active');
+	$('#meal-3-text').removeClass('active');
+});

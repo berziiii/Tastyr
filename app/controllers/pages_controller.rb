@@ -1,5 +1,11 @@
 class PagesController < ApplicationController
 
+	def index
+
+		@profile = current_user.profile
+  	@allergychoices = @profile.allergychoices
+
+	end
 
   def home
   end
@@ -18,6 +24,19 @@ class PagesController < ApplicationController
 			data = RestClient.get('http://food2fork.com/api/search?key=76a1bb1a21eb14d6f5569039fa0e1fe8&q='+query)
 
 			@recipes = JSON.parse(data)['recipes']
+
+	end
+
+	def dashboard_search_form
+
+		render dashboard
+
+	end
+
+	def dashboard
+
+		@profile = current_user.profile
+  	@allergychoices = @profile.allergychoices
 
 	end
 

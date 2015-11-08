@@ -1,3 +1,105 @@
-// Place all the styles related to the Dashboard controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+@import "application.sass"
+
+.dashboard-container
+	width: 100%
+	min-height: 100vh
+
+.dashboard-hero-wrapper
+	width: 100%
+	background: url(fresh-dashboard.png) no-repeat center
+	-webkit-background-size: cover
+	-moz-background-size: cover
+	-o-background-size: cover
+	background-size: cover
+	text-align: center
+	margin: 0px
+
+.dashboard-hero
+	font-family: NexaRust
+	padding: 150px 0px 50px 0px
+	margin: 0px
+	color: $white
+	background-color: rgba(0, 0, 0, .45)
+
+.dashboard-title
+	font-size: 2em
+
+.dashboard-meal-title
+	color: $white
+	font-size: .85em
+	margin-top: 25px
+
+.meal-choice-container
+	margin-top: 50px
+	text-align: center
+	margin-botton: 100px
+
+.meal-choice-box
+	background-color: rgba(0, 0, 0, .75)
+	color: $white
+	padding: 30px 40px
+	margin: 40px 0px 100px 0px
+	border: 2px solid $white
+
+.meal-choice-box:hover
+	background-color: rgba(0, 0, 0, .5)
+	color: $teal
+
+.dashboard-meal-container, .dash-board-container-5
+	width: 100%
+	text-align: center
+	margin: 0px
+
+.dashboard-container-5
+	display: inline
+
+.search-container
+	border: 1px solid $teal
+	height: 100%
+
+.protein-container, .protein-container-5
+	font-family: NexaRust
+	padding: 20px 0px
+	margin: 0px
+	background-color: $carbon
+	color: $white
+	text-align: center
+	border: 1px solid $teal
+
+.protein-container > form > input, .protein-container-5 > div > form > input
+	color: $carbon
+	background-color: $teal
+	padding: 3px 20px
+	margin-top: 10px
+	font-size: .75em
+
+.go-button
+	color: $carbon
+	background-color: $teal
+	padding: 3px 20px
+	margin-top: 25px
+	font-size: .75em
+
+.protein-container-5
+	width: 20%
+	float: left
+
+.meal-search-result
+	width: 100%
+	border: 1px solid $teal
+	height: 500px
+	margin: 0px
+	padding: 0px
+
+.search-meal
+	width: 100%
+	margin: -20px
+
+
+
+
+
+
+
+
+

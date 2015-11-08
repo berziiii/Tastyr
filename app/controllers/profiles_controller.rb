@@ -1,13 +1,15 @@
 class ProfilesController < ApplicationController
 
 	def index
+
+  	@profile = current_user.profile
+  	@allergychoices = @profile.allergychoices
+
   end
 
 	def new
 
 		@profile = Profile.new
-		@diet = Diet.all
-		@allergy = Allergy.all
 
 	end
 
@@ -30,10 +32,6 @@ class ProfilesController < ApplicationController
     end
   end
 
-  def dashboard
-  	@profile = Profile.find(params[:id])
-  end
-
  # 	def update
 	# 	@profile = Profile.find(params[:id])
 	# 	if @profile.update get_safe_params params
@@ -46,7 +44,7 @@ class ProfilesController < ApplicationController
 private
 
 	def get_safe_params params
-		params.require(:profile).permit(:first_name, :last_name, :diets, :allergies)
+		params.require(:profile).permit(:first_name, :last_name)
 	end
 
 end

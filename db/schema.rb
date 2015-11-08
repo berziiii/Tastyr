@@ -11,27 +11,43 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151103194448) do
+ActiveRecord::Schema.define(version: 20151105204919) do
 
   create_table "allergies", force: :cascade do |t|
-    t.string  "name"
-    t.integer "profile_id"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.integer  "profile_id"
+    t.integer  "allergychoice_id"
   end
 
+  add_index "allergies", ["allergychoice_id"], name: "index_allergies_on_allergychoice_id"
   add_index "allergies", ["profile_id"], name: "index_allergies_on_profile_id"
 
-  create_table "diets", force: :cascade do |t|
-    t.string  "name"
-    t.integer "profile_id"
+  create_table "allergychoices", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string   "name"
   end
 
+  create_table "dietchoices", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string   "name"
+  end
+
+  create_table "diets", force: :cascade do |t|
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.integer  "profile_id"
+    t.integer  "dietchoice_id"
+  end
+
+  add_index "diets", ["dietchoice_id"], name: "index_diets_on_dietchoice_id"
   add_index "diets", ["profile_id"], name: "index_diets_on_profile_id"
 
   create_table "profiles", force: :cascade do |t|
     t.string   "first_name"
     t.string   "last_name"
-    t.string   "diet"
-    t.string   "allergy"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "user_id"
