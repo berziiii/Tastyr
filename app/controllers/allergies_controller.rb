@@ -1,13 +1,19 @@
 class AllergiesController < ApplicationController
 
   def index
+    @allergies = Allergy.all
+    @allergy = Allergy.find(params[:id])
+    # do something with @allergies
   end
 
   def show
+    # @allergy = Allergy.find(params[:id])
+    # do something with @allergy
   end
 
   def new
 
+    @profile = current_user.profile
   	@allergychoices = Allergychoice.all
     @allergy = Allergy.new
 
@@ -21,28 +27,36 @@ class AllergiesController < ApplicationController
 
     if @allergy.save
       @profile.allergies << @allergy
-      redirect_to '/dashboard'
+      redirect_to dashboard_path
     else
       render 'new'
     end
   end
 
   def edit
+
+    @profile = current_user.profile
+    @allergychoices = Allergychoice.all
+    @allergy = @profile.allergies.first # this is fucked up JRH
+
   end
 
   def update
-  	@allergy = Allergy.find(params[:name])
-  	if @allergy.update get_safe_params params
-  		redirect_to profile_path
-  	else
-  		render 'new'
-  	end
+
+    @profile = current_user.profile(params[:id])
+  	@allergy = @profile.allergies
+
+    if @profile.update
+      redirect_to current_user.profile
+    else
+      render 'edit'
+    end
   end
 
 private
 
-	def get_safe_params params
-		params.require(:allergy).permit(:profile_id)
+	def allergy_params
+		params.require(:allergy).permit(:profile_id, :allergychoice_id)
 	end
 
 end

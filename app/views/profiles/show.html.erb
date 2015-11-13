@@ -1,9 +1,35 @@
-<div class="profile-show"
-	<br>
-	<br>
-	<br>
-	<h1> Welcome, <%= @profile.first_name %> </h1>
-
-	<h2> Diets: <%= @profile.diet.name %></h2>
-	<h3> Allergies: <%= @profile.allergy.name %> </h3>
+<div class="profile-container">
+	<div class="profile-wrapper">
+		<h1 class="profile-title">Profile</h1>
+		<div class="row">
+			<div class="col-lg-5 col-lg-offset-1 col-md-5 col-md-offset-1 col-sm-5 col-sm-offset-1 col-xs-12 profile-column">
+				<h1 class="profile-form-title">Profile Information</h1>
+				<div class="profile-field">
+					<div>User Name: <span class="profile-info"><%= @user.email %></span></div>
+					<div>First Name: <span class="profile-info"><%= @profile.first_name %></span></div>
+					<div>Last Name: <span class="profile-info"><%= @profile.last_name %></span></div>
+				</div>
+				<a class="edit-button" href="<%= edit_profile_path(current_user.profile) %>">
+					Edit Information
+				</a>
+			</div>
+			<div class="col-lg-5 col-md-5 col-sm-5 col-xs-12 profile-column">
+				<h1 class="profile-form-title">Allergies</h1>
+				<div class="profile-field">
+					<div class="profile-field">
+						<div>
+							<span class="profile-info">
+								<% @allergychoices.each do |allergychoice| %>
+									<%= allergychoice.name %>
+								<% end %>
+							</span>
+						</div>
+					</div>
+				</div>
+				<a class="edit-button" href="<%= edit_allergy_path(current_user.profile) %>">
+					Edit Allergies
+				</a>
+			</div>
+		</div>
+	</div>
 </div>

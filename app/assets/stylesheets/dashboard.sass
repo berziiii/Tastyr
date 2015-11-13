@@ -26,7 +26,7 @@
 
 .dashboard-meal-title
 	color: $white
-	font-size: .85em
+	font-size: .95em
 	margin-top: 25px
 
 .meal-choice-container
@@ -64,17 +64,23 @@
 	background-color: $carbon
 	color: $white
 	text-align: center
-	border: 1px solid $teal
+	border-left: 1px solid $teal
+	border-right: 1px solid $teal
 
 .protein-container > form > input, .protein-container-5 > div > form > input
-	color: $carbon
+	color: $white
 	background-color: $teal
 	padding: 3px 20px
 	margin-top: 10px
 	font-size: .75em
 
-.go-button
-	color: $carbon
+.form-container
+	padding-bottom: 20px
+	width: 100%
+	border-bottom: 5px solid $teal
+
+.go-button > input
+	color: $white
 	background-color: $teal
 	padding: 3px 20px
 	margin-top: 25px
@@ -84,16 +90,68 @@
 	width: 20%
 	float: left
 
-.meal-search-result
+.meal-search-grid
 	width: 100%
-	border: 1px solid $teal
-	height: 500px
 	margin: 0px
+	margin-top: 15px
 	padding: 0px
 
-.search-meal
+.meal-grid
+	font-family: ArchivoBold
+	font-size: 12pt
+	position: relative
+	margin-bottom: 30px
+
+.new-recipe-button > form > input
+	padding: 5px 15px
+	position: absolute
+	background-color: $teal
+	color: $white
+	top: 0px
+	right: 0px
+	color: $white
+	font-size: .75em
+
+.meal-cover
 	width: 100%
-	margin: -20px
+	height: 100%
+	padding: 100px 0px
+	color: $white
+	margin: 0px
+	font-size: 1.25em
+	background-color: rgba(0, 0, 0, .4)
+
+.meal-cover > h3
+	font-size: 1.25em
+
+.ingredient-grid
+	text-align: center
+	padding: 50px 0px 30px 0px
+	font-family: ArchivoBold
+	color: $white
+	font-size: 0.75em
+
+.ingredient-grid > h4
+	text-decoration: underline
+	padding-bottom: 25px
+
+.ingredient-grid > ul
+	list-style-type: none
+	text-align: left
+
+.ingredient-grid > li
+	padding: 5px 0px
+
+.source-button
+	padding: 10px 25px
+	background-color: $teal
+	color: $white
+	font-family: ArchivoBold
+	font-size: .65em
+
+.source-button:hover
+	color: $white
+	border: 1px solid $white
 
 
 

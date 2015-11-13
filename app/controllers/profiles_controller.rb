@@ -3,7 +3,8 @@ class ProfilesController < ApplicationController
 	def index
 
   	@profile = current_user.profile
-  	@allergychoices = @profile.allergychoices
+  	@allergychoices = Allergychoice.all
+  	@allergy = Allergy.find(params[:id])
 
   end
 
@@ -13,12 +14,12 @@ class ProfilesController < ApplicationController
 
 	end
 
-	# def edit
-	# 	@profile = Profile.find(params[:id])
-	# end
-
 	def show
-		@profile = Profile.find(params[:id])
+
+		@user = current_user
+ 		@profile = current_user.profile
+  	@allergychoices = @profile.allergychoices
+
 	end
 
 	def create
@@ -26,20 +27,32 @@ class ProfilesController < ApplicationController
     @profile.user = current_user
 
     if @profile.save
-			redirect_to new_diet_path
+			redirect_to new_allergy_path
 		else
       render 'new'
     end
+
   end
 
- # 	def update
-	# 	@profile = Profile.find(params[:id])
-	# 	if @profile.update get_safe_params params
-	# 		redirect_to @profile
-	# 	else
-	# 		render 'edit'
-	# 	end
-	# end
+	def edit
+
+		@profile = current_user.profile
+		@allergychoices = Allergychoice.all
+		@allergy = Allergy.find(params[:id])
+
+	end
+
+	def update
+
+		@profile = current_user.profile
+
+		if @profile.update get_safe_params params
+			redirect_to @profile
+		else
+			render 'edit'
+		end
+
+	end
 
 private
 

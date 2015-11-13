@@ -13,33 +13,11 @@
 						<%= f.text_field :last_name, autofocus: true, :placeholder => "Last Name" %>
 					</div>
 				</fieldset>
-				<div class="create-profile">
-					<%= f.submit :value => "Next" %>
-					<% end %>
-				</div>
 			</div>
-			<!-- <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 profile-column">
-				<fieldset>
-					<h1 class="profile-form-title">Diets</h1>
-
-					<#% @diet.each do |e| %>
-						<div class="profile-radio-field">
-							<#%= check_box_tag :diet, e.name %> <#%= e.name %>
-						</div>
-					<#% end %>
-
-				</fieldset>
-			</div>
-			<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 profile-column">
-				<fieldset>
-					<h1 class="profile-form-title">Allergies</h1>
-					<#% @allergy.each do |e| %>
-						<div class="profile-radio-field">
-							<#%= f.check_box :allergy %> <#%= e.name %>
-						</div>
-					<#% end %>
-				</fieldset>
-			</div> -->
 		</div>
+		<div class="create-profile">
+				<%= f.submit :value => "Next" %>
+				<% end %>
+			</div>
 	</div>
 </div>

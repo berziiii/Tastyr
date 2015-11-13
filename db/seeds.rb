@@ -6,5 +6,5 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-dietchoices = Dietchoice.create([{name: "Paleo"}, {name: "Pescetarian"}, {name: "Vegetarian"}, {name: "Lacto Vegetarian"}, {name: "Ovo Vegetarian"}, {name: "Vegan"}])
-allergychoices = Allergychoice.create([{name: "Sesame"}, {name: "Tree Nut"}, {name: "Seafood"}, {name: "Peanut"}, {name: "Soy"}, {name: "Egg"}, {name: "Wheat"}, {name: "Gluten"}, {name: "Dairy"}, {name: "Dairy"}, {name: "Sulfite"}])
+dietchoices = Dietchoice.create([{name: "None"}, {name: "Paleo"}, {name: "Pescetarian"}, {name: "Vegetarian"}, {name: "Lacto Vegetarian"}, {name: "Ovo Vegetarian"}, {name: "Vegan"}])
+allergychoices = Allergychoice.create([{name: "None"}, {name: "Sesame"}, {name: "Tree Nut"}, {name: "Seafood"}, {name: "Peanut"}, {name: "Soy"}, {name: "Egg"}, {name: "Wheat"}, {name: "Gluten"}, {name: "Dairy"}, {name: "Dairy"}, {name: "Sulfite"}])

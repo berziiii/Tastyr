@@ -4,5 +4,5 @@ class Profile < ActiveRecord::Base
 	has_many :allergychoices, through: :allergies
 	has_many :diets
 	has_many :dietchoices, through: :diets
-
+	accepts_nested_attributes_for :allergies
 end

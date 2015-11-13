@@ -1,0 +1,44 @@
+<div class="profile-container">
+	<div class="profile-wrapper">
+		<h1 class="profile-title">Edit Profile Information</h1>
+		<div class="row">
+			<div class="col-lg-5 col-lg-offset-1 col-md-5 col-md-offset-1 col-sm-5 col-sm-offset-1 col-xs-12 profile-column">
+				<%= form_for @profile do |f| %>
+				<fieldset>
+					<h1 class="profile-form-title">Profile Information</h1>
+					<div class="profile-field">
+						<%= f.text_field :first_name, autofocus: true, :placeholder => "First Name"  %>
+					</div>
+					<div class="profile-field">
+						<%= f.text_field :last_name, autofocus: true, :placeholder => "Last Name" %>
+					</div>
+				</fieldset>
+			</div>
+			<div class="col-lg-5 col-md-5 col-sm-5 col-xs-12 profile-column">
+				<fieldset>
+					<h1 class="profile-form-title">Allergy Information</h1>
+					<%= f.fields_for :allergies do |a| %>
+						<ul>
+						<% @allergychoices.each do |allergy| %>
+							<li>
+								<%= label_tag allergy.name, nil do %>
+									<%= allergy.name %>
+									<%= check_box_tag(
+										allergy.name,
+										allergy.id,
+									    lambda { a.object.allergychoice_id == allergy.id}.call
+									) %>
+								<% end %>
+							</li>
+						<% end %>
+						</ul>
+					<% end %>
+				</fieldset>
+			</div>
+			<div class="create-profile">
+				<%= f.submit :value => "Update" %>
+			</div>
+			<% end %>
+		</div>
+	</div>
+</div>

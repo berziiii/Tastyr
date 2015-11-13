@@ -1,0 +1,38 @@
+<div class="search-container">
+	<div class="search-wrapper">
+		<h1 class="search-page-title">
+			What Tasty<span class="R">R</span> meal are you craving?
+		</h1>
+		<div class="search-bar">
+			<%= form_tag '/search', method: :get  do %>
+				<%= search_field_tag :q, params[:q] %>
+				<%= submit_tag "Search", name: nil %>
+			<% end %>
+		</div>
+		<div class="search-break">
+		</div>
+	</div>
+
+	<% if @recipes %>
+		<% @recipes.each_with_index do |recipe, index| %>
+			<% if index % 3 == 0 %><div class="row"><% end %>
+				<a href="<%= recipe["source_url"] %>" target="_blank">
+					<div style="background:url(<%= recipe["image_url"] %>) no-repeat center;-webkit-background-size:cover;-moz-background-size:cover;-o-background-size:cover;background-size:cover;padding:0px" class="col-lg-4 col-md-4 col-sm-4 col-xs-12 search-grid">
+						<div class="search-cover">
+							<h3><%= recipe["title"] %></h3>
+						</div>
+					</div>
+				</a>
+				<style>
+					.search-page-title {
+						padding-top: 100px
+					}
+
+					.search-bar {
+						padding: 50px 0px 150px 0px
+					}
+				</style>
+			<% if index % 3 == 2 %></div><% end %>
+		<% end %> <!-- end recipes.each -->
+	<% end %>
+</div>

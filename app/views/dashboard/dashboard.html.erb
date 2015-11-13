@@ -2,13 +2,8 @@
 	<div class="dashboard-hero-wrapper">
 		<div class="dashboard-hero">
 			<h1 class="dashboard-title">Welcome back <%= @profile.first_name %></h1>
-			<ul>
-				<% @allergychoices.each do |allergychoice| %>
-					<li> <%= allergychoice.name %> </li>
-				<% end %>
-			</ul>
-			<h2 class="dashboard-meal-title">HOW MANY TASTY<span class="R">r</span> MEALS SHOULD WE PLAN FOR THIS WEEK?</h2>
-			<div class="row">
+			<h2 class="dashboard-meal-title">PLAN THOSE TASTY<span class="R">R</span> MEALS FOR THE WEEK</h2>
+			<!-- <div class="row">
 				<div class="col-lg-4 col-lg-offset-4 col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3 meal-choice-container">
 					<div class="row">
 						<div class="col-lg-6 col-md-6 col-sm-6">
@@ -19,187 +14,121 @@
 						</div>
 					</div>
 				</div>
-			</div>
+			</div> -->
 		</div>
 	</div>
 	<div id="meal-3" class="dashboard-meal-container">
 		<div class="row search-container">
 			<div class="col-lg-4 col-md-4 col-sm-12 protein-container">
 				<h4>Pick your meal</h4>
+				<div class="form-container">
 				<%= form_tag '/dashboard' do %>
-					<%= select_tag(:q, options_for_select([['Chicken', "Chicken"], ['Beef', "Beef"], ['Pork', "Pork"], ['Fish', 'Fish'], ['Game', 'Game'], ['Lamb', 'Lamb'], ['Pasta', 'Pasta'], ['Vegetarian', 'Vegetarian']], :selected => params[:q])) %>
+					<%= select_tag(:q, options_for_select([['', ""],['Chicken', "Chicken"], ['Beef', "Beef"], ['Pork', "Pork"], ['Fish', 'Fish'], ['Game', 'Game'], ['Lamb', 'Lamb'], ['Pasta', 'Pasta'], ['Vegetarian', 'Vegetarian'], ['Paleo', 'Paleo'], ['Vegan', 'Vegan']], :selected => params[:q])) %>
 					<%= hidden_field_tag :form_id, 1%>
-					<div>
+					<div class="go-button">
 						<%= submit_tag "Go" %>
 					</div>
 				<% end %>
-				<div>
-					<% if @recipe && @form_id == 1%>
-						<a href="<%= session[1][2] %>" target="_blank">
-							<div style="background:url(<%= session[1][1] %>) no-repeat center;-webkit-background-size:cover;-moz-background-size:cover;-o-background-size:cover;background-size:cover;padding:0px" class="col-lg-12 col-md-12 col-sm-12 col-xs-12 search-grid">
-								<div class="search-cover">
-									<h3><%= session[1][0] %></h3>
-								</div>
-							</div>
-						</a>
-					<% end %>
 				</div>
+				<% if session[1]%>
+				<div class="meal-search-grid">
+					<div style="background:url(<%= session[1][1] %>) no-repeat center;-webkit-background-size:cover;-moz-background-size:cover;-o-background-size:cover;background-size:cover;padding:0px" class="col-lg-12 col-md-12 col-sm-12 col-xs-12 meal-grid">
+						<div class="meal-cover">
+							<h3><%= session[1][0] %></h3>
+						</div>
+						<a class="new-recipe-button">
+							<%= form_tag '/dashboard' do %>
+								<%= submit_tag "+ RECIPE" %>
+							<% end %>
+						</a>
+					</div>
+					<a class="source-button" href="<%= session[1][2] %>" target="_blank">
+						VIEW RECIPE
+					</a>
+					<div class="ingredient-grid">
+						<h4>INGREDIENTS</h4>
+						<ul>
+							<% session[1][3].each do |e| %>
+								<li> <%= e %> </li>
+							<% end %>
+						</ul>
+					</div>
+				</div>
+				<% end %>
 			</div>
 			<div class="col-lg-4 col-md-4 col-sm-12 protein-container">
 				<h4>Pick your meal</h4>
+				<div class="form-container">
 				<%= form_tag '/dashboard' do %>
-					<%= select_tag(:q, options_for_select([['Chicken', "Chicken"], ['Beef', "Beef"], ['Pork', "Pork"], ['Fish', 'Fish'], ['Game', 'Game'], ['Lamb', 'Lamb'], ['Pasta', 'Pasta'], ['Vegetarian', 'Vegetarian']], :selected => params[:q])) %>
+					<%= select_tag(:q, options_for_select([['', ""],['Chicken', "Chicken"], ['Beef', "Beef"], ['Pork', "Pork"], ['Fish', 'Fish'], ['Game', 'Game'], ['Lamb', 'Lamb'], ['Pasta', 'Pasta'], ['Vegetarian', 'Vegetarian'], ['Paleo', 'Paleo'], ['Vegan', 'Vegan']], :selected => params[:q])) %>
 					<%= hidden_field_tag :form_id, 2%>
-					<div>
+					<div class="go-button">
 						<%= submit_tag "Go" %>
 					</div>
 				<% end %>
-				<div>
-					<% if @recipe && @form_id == 2 %>
-						<a href="<%= session[2][2] %>" target="_blank">
-							<div style="background:url(<%= session[2][1] %>) no-repeat center;-webkit-background-size:cover;-moz-background-size:cover;-o-background-size:cover;background-size:cover;padding:0px" class="col-lg-12 col-md-12 col-sm-12 col-xs-12 search-grid">
-								<div class="search-cover">
-									<h3><%= session[2][0] %></h3>
-								</div>
-							</div>
-						</a>
-					<% end %>
 				</div>
+				<% if session[2]%>
+				<div class="meal-search-grid">
+					<div style="background:url(<%= session[2][1] %>) no-repeat center;-webkit-background-size:cover;-moz-background-size:cover;-o-background-size:cover;background-size:cover;padding:0px" class="col-lg-12 col-md-12 col-sm-12 col-xs-12 meal-grid">
+						<div class="meal-cover">
+							<h3><%= session[2][0] %></h3>
+						</div>
+						<a class="new-recipe-button">
+							<%= form_tag '/dashboard' do %>
+								<%= submit_tag "+ RECIPE" %>
+							<% end %>
+						</a>
+					</div>
+					<a class="source-button" href="<%= session[2][2] %>" target="_blank">
+						VIEW RECIPE
+					</a>
+					<div class="ingredient-grid">
+						<h4>INGREDIENTS</h4>
+						<ul>
+							<% session[2][3].each do |e| %>
+								<li> <%= e %> </li>
+							<% end %>
+						</ul>
+					</div>
+				</div>
+				<% end %>
 			</div>
 			<div class="col-lg-4 col-md-4 col-sm-12 protein-container">
 				<h4>Pick your meal</h4>
+				<div class="form-container">
 				<%= form_tag '/dashboard' do %>
-					<%= select_tag(:q, options_for_select([['Chicken', "Chicken"], ['Beef', "Beef"], ['Pork', "Pork"], ['Fish', 'Fish'], ['Game', 'Game'], ['Lamb', 'Lamb'], ['Pasta', 'Pasta'], ['Vegetarian', 'Vegetarian']], :selected => params[:q])) %>
+					<%= select_tag(:q, options_for_select([['', ""],['Chicken', "Chicken"], ['Beef', "Beef"], ['Pork', "Pork"], ['Fish', 'Fish'], ['Game', 'Game'], ['Lamb', 'Lamb'], ['Pasta', 'Pasta'], ['Vegetarian', 'Vegetarian'], ['Paleo', 'Paleo'], ['Vegan', 'Vegan']], :selected => params[:q])) %>
 					<%= hidden_field_tag :form_id, 3%>
-					<div>
+					<div class="go-button">
 						<%= submit_tag "Go" %>
 					</div>
 				<% end %>
-				<div>
-					<% if @recipe && @form_id == 3 %>
-						<a href="<%= session[3][2] %>" target="_blank">
-							<div style="background:url(<%= session[3][1] %>) no-repeat center;-webkit-background-size:cover;-moz-background-size:cover;-o-background-size:cover;background-size:cover;padding:0px" class="col-lg-12 col-md-12 col-sm-12 col-xs-12 search-grid">
-								<div class="search-cover">
-									<h3><%= session[3][0] %></h3>
-								</div>
-							</div>
+				</div>
+				<% if session[3]%>
+				<div class="meal-search-grid">
+					<div style="background:url(<%= session[3][1] %>) no-repeat center;-webkit-background-size:cover;-moz-background-size:cover;-o-background-size:cover;background-size:cover;padding:0px" class="col-lg-12 col-md-12 col-sm-12 col-xs-12 meal-grid">
+						<div class="meal-cover">
+							<h3><%= session[3][0] %></h3>
+						</div>
+						<a class="new-recipe-button">
+							<%= form_tag '/dashboard' do %>
+								<%= submit_tag "+ RECIPE" %>
+							<% end %>
 						</a>
-					<% end %>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div id="meal-5" class="dashboard-meal-container-5 hide">
-		<div class="search-container">
-			<div class="protein-container-5">
-				<h4>Pick your meal</h4>
-				<%= form_tag '/dashboard' do %>
-					<%= select_tag(:q, options_for_select([['Chicken', "Chicken"], ['Beef', "Beef"], ['Pork', "Pork"], ['Fish', 'Fish'], ['Game', 'Game'], ['Lamb', 'Lamb'], ['Pasta', 'Pasta'], ['Vegetarian', 'Vegetarian']], :selected => params[:q])) %>
-					<%= hidden_field_tag :form_id, 1%>
-				<div>
-					<%= submit_tag "Go" %>
-				</div>
-					<%= session[1] %>
-				<% end %>
-				<div>
-				<% if @recipe && @form_id == 1%>
-					<a href="<%= @recipe["source_url"] %>" target="_blank">
-						<div style="background:url(<%= @recipe["image_url"] %>) no-repeat center;-webkit-background-size:cover;-moz-background-size:cover;-o-background-size:cover;background-size:cover;padding:0px" class="col-lg-12 col-md-12 col-sm-12 col-xs-12 search-grid">
-							<div class="search-cover">
-								<h3><%= @recipe["title"] %></h3>
-							</div>
-						</div>
+					</div>
+					<a class="source-button" href="<%= session[3][2] %>" target="_blank">
+						VIEW RECIPE
 					</a>
-				<% end %>
+					<div class="ingredient-grid">
+						<h4>INGREDIENTS</h4>
+						<ul>
+							<% session[3][3].each do |e| %>
+								<li> <%= e %> </li>
+							<% end %>
+						</ul>
+					</div>
 				</div>
-			</div>
-			<div class="protein-container-5">
-				<h4>Pick your meal</h4>
-				<%= form_tag '/dashboard' do %>
-					<%= select_tag(:q, options_for_select([['Chicken', "Chicken"], ['Beef', "Beef"], ['Pork', "Pork"], ['Fish', 'Fish'], ['Game', 'Game'], ['Lamb', 'Lamb'], ['Pasta', 'Pasta'], ['Vegetarian', 'Vegetarian']], :selected => params[:q])) %>
-					<%= hidden_field_tag :form_id, 2%>
-				<div>
-					<%= submit_tag "Go" %>
-				</div>
-					<%= session[2] %>
 				<% end %>
-				<div>
-				<% if @recipe && @form_id == 2%>
-					<a href="<%= @recipe["source_url"] %>" target="_blank">
-						<div style="background:url(<%= @recipe["image_url"] %>) no-repeat center;-webkit-background-size:cover;-moz-background-size:cover;-o-background-size:cover;background-size:cover;padding:0px" class="col-lg-12 col-md-12 col-sm-12 col-xs-12 search-grid">
-							<div class="search-cover">
-								<h3><%= @recipe["title"] %></h3>
-							</div>
-						</div>
-					</a>
-				<% end %>
-				</div>
-			</div>
-			<div class="protein-container-5">
-				<h4>Pick your meal</h4>
-				<%= form_tag '/dashboard' do %>
-					<%= select_tag(:q, options_for_select([['Chicken', "Chicken"], ['Beef', "Beef"], ['Pork', "Pork"], ['Fish', 'Fish'], ['Game', 'Game'], ['Lamb', 'Lamb'], ['Pasta', 'Pasta'], ['Vegetarian', 'Vegetarian']], :selected => params[:q])) %>
-					<%= hidden_field_tag :form_id, 3%>
-				<div>
-					<%= submit_tag "Go" %>
-				</div>
-					<%= session[3] %>
-				<% end %>
-				<div>
-				<% if @recipe && @form_id == 3%>
-					<a href="<%= @recipe["source_url"] %>" target="_blank">
-						<div style="background:url(<%= @recipe["image_url"] %>) no-repeat center;-webkit-background-size:cover;-moz-background-size:cover;-o-background-size:cover;background-size:cover;padding:0px" class="col-lg-12 col-md-12 col-sm-12 col-xs-12 search-grid">
-							<div class="search-cover">
-								<h3><%= @recipe["title"] %></h3>
-							</div>
-						</div>
-					</a>
-				<% end %>
-				</div>
-			</div>
-			<div class="protein-container-5">
-				<h4>Pick your meal</h4>
-				<%= form_tag '/dashboard' do %>
-					<%= select_tag(:q, options_for_select([['Chicken', "Chicken"], ['Beef', "Beef"], ['Pork', "Pork"], ['Fish', 'Fish'], ['Game', 'Game'], ['Lamb', 'Lamb'], ['Pasta', 'Pasta'], ['Vegetarian', 'Vegetarian']], :selected => params[:q])) %>
-					<%= hidden_field_tag :form_id, 4%>
-				<div>
-					<%= submit_tag "Go" %>
-				</div>
-					<%= session[4] %>
-				<% end %>
-				<div>
-				<% if @recipe && @form_id == 4%>
-					<a href="<%= @recipe["source_url"] %>" target="_blank">
-						<div style="background:url(<%= @recipe["image_url"] %>) no-repeat center;-webkit-background-size:cover;-moz-background-size:cover;-o-background-size:cover;background-size:cover;padding:0px" class="col-lg-12 col-md-12 col-sm-12 col-xs-12 search-grid">
-							<div class="search-cover">
-								<h3><%= @recipe["title"] %></h3>
-							</div>
-						</div>
-					</a>
-				<% end %>
-				</div>
-			</div>
-			<div class="protein-container-5">
-				<h4>Pick your meal</h4>
-				<%= form_tag '/dashboard' do %>
-					<%= select_tag(:q, options_for_select([['Chicken', "Chicken"], ['Beef', "Beef"], ['Pork', "Pork"], ['Fish', 'Fish'], ['Game', 'Game'], ['Lamb', 'Lamb'], ['Pasta', 'Pasta'], ['Vegetarian', 'Vegetarian']], :selected => params[:q])) %>
-					<%= hidden_field_tag :form_id, 5%>
-				<div>
-					<%= submit_tag "Go" %>
-				</div>
-					<%= session[5] %>
-				<% end %>
-				<div>
-				<% if @recipe && @form_id == 5%>
-					<a href="<%= @recipe["source_url"] %>" target="_blank">
-						<div style="background:url(<%= @recipe["image_url"] %>) no-repeat center;-webkit-background-size:cover;-moz-background-size:cover;-o-background-size:cover;background-size:cover;padding:0px" class="col-lg-12 col-md-12 col-sm-12 col-xs-12 search-grid">
-							<div class="search-cover">
-								<h3><%= @recipe["title"] %></h3>
-							</div>
-						</div>
-					</a>
-				<% end %>
-				</div>
 			</div>
 		</div>
 	</div>

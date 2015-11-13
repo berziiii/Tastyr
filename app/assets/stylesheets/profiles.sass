@@ -1,6 +1,7 @@
 @import "application.sass"
 
 .profile-container
+	z-index: 10000
 	width: 100%
 	min-height: 100vh
 	background-color: $carbon
@@ -36,6 +37,13 @@
 	padding: 15px 0px
 	color: $carbon
 
+.profile-field > div
+	color: $white
+
+.profile-info
+	font-size: 1.5em
+	padding: 0px 25px
+
 .profile-radio-field
 	padding: 3px 0px 3px 40%
 	text-align: left
@@ -54,10 +62,23 @@
 	-ms-transition: background-color .2s ease-out
 	transition: background-color .2s ease-out
 
-
 .profile-show
 	color: $white
 	text-align: center
+
+.edit-button
+	padding: 5px 10px
+	background-color: $teal
+	color: $white
+	margin-top: 50px
+
+.edit-button:hover
+	border: 1px solid $white
+	color: $white
+
+ul
+	list-style: none
+
 
 
 

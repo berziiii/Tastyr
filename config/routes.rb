@@ -4,25 +4,24 @@ Rails.application.routes.draw do
 
   root "pages#home"
 
-  resources :pages
-
   resources :profiles
 
   resources :diets
 
   resources :allergies
 
-  get '/profiles' => 'profiles#new'
-
   get '/about' => 'pages#about'
-
-  get '/search' => 'pages#search_form'
-
-  post '/search' => 'pages#search'
+  get '/search' => 'search#new'
 
   get '/dashboard' => 'dashboard#index'
+  post '/dashboard' => 'dashboard#dashboard' #FIXME
 
-  post '/dashboard' => 'dashboard#dashboard'
+  # get '/profile' => 'profiles#show'
+
+  # get 'profile/edit/info' => 'profiles#edit'
+
+  # get '/profile/edit/allergy' => 'allergies#edit'
+
 
 
   # The priority is based upon order of creation: first created -> highest priority.
