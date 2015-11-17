@@ -22,11 +22,11 @@
 			<div class="col-lg-4 col-md-4 col-sm-12 protein-container">
 				<h4>Pick your meal</h4>
 				<div class="form-container">
-				<%= form_tag '/dashboard' do %>
-					<%= select_tag(:q, options_for_select([['', ""],['Chicken', "Chicken"], ['Beef', "Beef"], ['Pork', "Pork"], ['Fish', 'Fish'], ['Game', 'Game'], ['Lamb', 'Lamb'], ['Pasta', 'Pasta'], ['Vegetarian', 'Vegetarian'], ['Paleo', 'Paleo'], ['Vegan', 'Vegan']], params[:q] = "Chicken")) %>
+				<%= form_tag '/dashboard', method: :get do %>
+					<%= select_tag(:q, options_for_select([['', ""],['Chicken', "Chicken"], ['Beef', "Beef"], ['Pork', "Pork"], ['Fish', 'Fish'], ['Game', 'Game'], ['Lamb', 'Lamb'], ['Pasta', 'Pasta'], ['Vegetarian', 'Vegetarian'], ['Paleo', 'Paleo'], ['Vegan', 'Vegan']], :selected => params[:q])) %>
 					<%= hidden_field_tag :form_id, 1%>
 					<div class="go-button">
-						<%= submit_tag "Go" %>
+						<%= submit_tag "Go", name: nil %>
 					</div>
 				<% end %>
 				</div>
@@ -59,11 +59,11 @@
 			<div class="col-lg-4 col-md-4 col-sm-12 protein-container">
 				<h4>Pick your meal</h4>
 				<div class="form-container">
-				<%= form_tag '/dashboard' do %>
-					<%= select_tag(:q, options_for_select([['', ""],['Chicken', "Chicken"], ['Beef', "Beef"], ['Pork', "Pork"], ['Fish', 'Fish'], ['Game', 'Game'], ['Lamb', 'Lamb'], ['Pasta', 'Pasta'], ['Vegetarian', 'Vegetarian'], ['Paleo', 'Paleo'], ['Vegan', 'Vegan']], params[:q] = "Beef")) %>
+				<%= form_tag '/dashboard', method: :get do %>
+					<%= select_tag(:q, options_for_select([['', ""],['Chicken', "Chicken"], ['Beef', "Beef"], ['Pork', "Pork"], ['Fish', 'Fish'], ['Game', 'Game'], ['Lamb', 'Lamb'], ['Pasta', 'Pasta'], ['Vegetarian', 'Vegetarian'], ['Paleo', 'Paleo'], ['Vegan', 'Vegan']], :selected => params[:q])) %>
 					<%= hidden_field_tag :form_id, 2%>
 					<div class="go-button">
-						<%= submit_tag "Go" %>
+						<%= submit_tag "Go", name: nil %>
 					</div>
 				<% end %>
 				</div>
@@ -96,11 +96,11 @@
 			<div class="col-lg-4 col-md-4 col-sm-12 protein-container">
 				<h4>Pick your meal</h4>
 				<div class="form-container">
-				<%= form_tag '/dashboard' do %>
-					<%= select_tag(:q, options_for_select([['', ""],['Chicken', "Chicken"], ['Beef', "Beef"], ['Pork', "Pork"], ['Fish', 'Fish'], ['Game', 'Game'], ['Lamb', 'Lamb'], ['Pasta', 'Pasta'], ['Vegetarian', 'Vegetarian'], ['Paleo', 'Paleo'], ['Vegan', 'Vegan']], params[:q] = "Pork")) %>
+				<%= form_tag '/dashboard', method: :get do %>
+					<%= select_tag(:q, options_for_select([['', ""],['Chicken', "Chicken"], ['Beef', "Beef"], ['Pork', "Pork"], ['Fish', 'Fish'], ['Game', 'Game'], ['Lamb', 'Lamb'], ['Pasta', 'Pasta'], ['Vegetarian', 'Vegetarian'], ['Paleo', 'Paleo'], ['Vegan', 'Vegan']], :selected => params[:q])) %>
 					<%= hidden_field_tag :form_id, 3%>
 					<div class="go-button">
-						<%= submit_tag "Go" %>
+						<%= submit_tag "Go", name: nil %>
 					</div>
 				<% end %>
 				</div>

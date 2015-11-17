@@ -7,8 +7,7 @@ class AllergiesController < ApplicationController
   end
 
   def show
-    # @allergy = Allergy.find(params[:id])
-    # do something with @allergy
+    @allergy = Allergy.find(params[:id])
   end
 
   def new
@@ -27,7 +26,7 @@ class AllergiesController < ApplicationController
 
     if @allergy.save
       @profile.allergies << @allergy
-      redirect_to dashboard_path
+      redirect_to current_user.profile
     else
       render 'new'
     end
@@ -37,7 +36,6 @@ class AllergiesController < ApplicationController
 
     @profile = current_user.profile
     @allergychoices = Allergychoice.all
-    @allergy = @profile.allergies.first # this is fucked up JRH
 
   end
 
@@ -51,6 +49,18 @@ class AllergiesController < ApplicationController
     else
       render 'edit'
     end
+  end
+
+  def destroy
+
+    @user = current_user
+    @profile = current_user.profile
+    @allergychoices = @profile.allergychoices
+    @allergy = Allergy.where(params[:profile_id] == @profile, params[:allergychoice_id] == @allergychoices)
+
+    Allergy.find(params[:id]).delete
+    redirect_to current_user.profile
+
   end
 
 private

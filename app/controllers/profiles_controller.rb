@@ -19,6 +19,7 @@ class ProfilesController < ApplicationController
 		@user = current_user
  		@profile = current_user.profile
   	@allergychoices = @profile.allergychoices
+  	@allergy = Allergy.where(params[:profile_id] == @profile.id)
 
 	end
 
@@ -27,7 +28,7 @@ class ProfilesController < ApplicationController
     @profile.user = current_user
 
     if @profile.save
-			redirect_to new_allergy_path
+			redirect_to current_user.profile
 		else
       render 'new'
     end
@@ -37,8 +38,6 @@ class ProfilesController < ApplicationController
 	def edit
 
 		@profile = current_user.profile
-		@allergychoices = Allergychoice.all
-		@allergy = Allergy.find(params[:id])
 
 	end
 

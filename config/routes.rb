@@ -12,9 +12,7 @@ Rails.application.routes.draw do
 
   get '/about' => 'pages#about'
   get '/search' => 'search#new'
-
-  get '/dashboard' => 'dashboard#index'
-  post '/dashboard' => 'dashboard#dashboard' #FIXME
+  get '/dashboard' => 'dashboard#new'
 
   # get '/profile' => 'profiles#show'
 

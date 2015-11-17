@@ -1,29 +1,28 @@
 <div class="profile-container">
 	<div class="profile-wrapper">
-		<h1 class="profile-title">Create a new Profile</h1>
+		<h1 class="profile-title">Pick an Allergy</h1>
 		<div class="row">
 			<div class="col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3 col-xs-12 profile-column">
-				<fieldset>
-					<h1 class="profile-form-title">Allergy Information</h1>
-					<%= form_for @allergy do |f| %>
-						<ul>
-						<% @allergychoices.each do |allergy| %>
-							<li>
-								<%= label_tag allergy.name, nil do %>
-									<%= allergy.name %>
-									<%= check_box_tag(
-										allergy.name,
-										allergy.id,
-									    lambda { f.object.allergychoice_id == allergy.id}.call
-									) %>
-								<% end %>
-							</li>
+				<%= form_for @allergy do |f| %>
+					<fieldset class="allergy-container">
+						<h1 class="profile-form-title">Allergies</h1>
+						<!-- reject allergychoices that have already been chose (ruby method reject) -->
+						<% @allergychoices.each do |e| %>
+							<div class="profile-radio-field">
+								<%= radio_button_tag :allergychoice_id, e.id %> <%= e.name %>
+							</div>
 						<% end %>
-						</ul>
-				</fieldset>
-				<div class="create-profile">
-					<%= f.submit :value => "Create Profile" %>
-					<% end %>
+					</fieldset>
+					<div class="create-profile">
+						<%= f.submit :value => "Add Allergy" %>
+					</div>
+				<% end %>
+			</div>
+			<div class="row button-container">
+				<div class="col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3 col-xs-12 create-profile">
+					<form action="/profiles/<%= @profile.id %>" method="get">
+						<input type="submit" value="Cancel">
+					</form>
 				</div>
 			</div>
 		</div>

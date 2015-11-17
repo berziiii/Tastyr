@@ -19,12 +19,12 @@
 .profile-column
 	text-align: center
 	font-size: 1em
+	width: 100%
 
 .profile-title
 	font-family: NexaRust
 	font-size: 1.75em
 	color: $orange
-	text-align: center
 
 .profile-form-title
 	color: $white
@@ -36,6 +36,7 @@
 .profile-field
 	padding: 15px 0px
 	color: $carbon
+	text-align: left
 
 .profile-field > div
 	color: $white
@@ -44,19 +45,47 @@
 	font-size: 1.5em
 	padding: 0px 25px
 
+.allergy-info > a
+	font-size: .75em
+	color: $white
+
+.allergy-container
+	margin-bottom: 30px
+
+.remove-fields
+	margin: 8px 0px
+
 .profile-radio-field
 	padding: 3px 0px 3px 40%
 	text-align: left
 
-.create-profile > input
+.profile-allergies-container
+	width: 100%
+
+.profile-allergies-wrapper
+	margin-left: 25%
+	width: 50%
+
+.allergy-field
+	float: left
+	color: $white
+	text-align: center
+	padding-bottom: 20px
+
+.create-profile
 	background-color: rgba(0, 0, 0, 0)
-	font-color: $white
+	color: $white
 	padding: 5px 25px
 	font-size: 1.5em
-	margin: 50px
 
-.create-profile > input:hover
+.create-profile > input, .create-profile > form > input
+	background-color: rgba(0, 0, 0, 0)
+	color: $white
+	padding: 5px 25px
+
+.create-profile > input:hover, .create-profile > form > input:hover
 	background-color: $teal
+	color: $white
 	-webkit-transition: background-color .2s ease-out
 	-moz-transition: background-color .2s ease-out
 	-ms-transition: background-color .2s ease-out
@@ -66,11 +95,17 @@
 	color: $white
 	text-align: center
 
+.allergies-button
+	width: 30%
+	margin-left: 35%
+	margin-top: 50px
+
 .edit-button
 	padding: 5px 10px
 	background-color: $teal
 	color: $white
-	margin-top: 50px
+	text-align: center
+	margin-top: 100px
 
 .edit-button:hover
 	border: 1px solid $white
@@ -78,6 +113,12 @@
 
 ul
 	list-style: none
+
+.button-container
+	padding: 50px
+
+
+
 
 
 

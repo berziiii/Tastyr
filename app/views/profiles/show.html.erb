@@ -2,7 +2,7 @@
 	<div class="profile-wrapper">
 		<h1 class="profile-title">Profile</h1>
 		<div class="row">
-			<div class="col-lg-5 col-lg-offset-1 col-md-5 col-md-offset-1 col-sm-5 col-sm-offset-1 col-xs-12 profile-column">
+			<div class="col-lg-5 col-lg-offset-1 col-md-5 col-md-offset-1 col-sm-4 col-sm-offset-1 col-xs-12 profile-column">
 				<h1 class="profile-form-title">Profile Information</h1>
 				<div class="profile-field">
 					<div>User Name: <span class="profile-info"><%= @user.email %></span></div>
@@ -15,20 +15,29 @@
 			</div>
 			<div class="col-lg-5 col-md-5 col-sm-5 col-xs-12 profile-column">
 				<h1 class="profile-form-title">Allergies</h1>
-				<div class="profile-field">
-					<div class="profile-field">
-						<div>
-							<span class="profile-info">
-								<% @allergychoices.each do |allergychoice| %>
-									<%= allergychoice.name %>
-								<% end %>
-							</span>
+				<div class="profile-allergies-container">
+					<div class="profile-allergies-wrapper">
+						<div class="allergy-field">
+							<% @allergychoices.each do |allergychoice| %>
+								<div class="fields">
+									<span class="profile-info"><%= allergychoice.name %></span>
+								</div>
+							<% end %>
+						</div>
+						<div class="allergy-field">
+							<% @allergy.each do |a| %>
+								<div class="remove-fields">
+									<span class="allergy-info"><%= link_to 'Remove', allergy_path(a.id), :method => :delete %></span>
+								</div>
+							<% end %>
 						</div>
 					</div>
+					<div class="allergies-button">
+						<a class="edit-button" href="<%= new_allergy_path %>">
+							New Allergy +
+						</a>
+					</div>
 				</div>
-				<a class="edit-button" href="<%= edit_allergy_path(current_user.profile) %>">
-					Edit Allergies
-				</a>
 			</div>
 		</div>
 	</div>
