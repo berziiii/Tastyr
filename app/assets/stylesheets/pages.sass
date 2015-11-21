@@ -149,3 +149,91 @@
 		-moz-transition: background-color .3s ease-out
 		-ms-transition: background-color .3s ease-out
 		color: $white
+
+
+.about-container
+	width: 100%
+	min-height: 100vh
+	font-family: ArchivoBold
+	text-align: center
+	margin: 0px
+	background-color: $carbon
+
+
+.about-hero
+	background: url(fresh-about.png) no-repeat center
+	-webkit-background-size: cover
+	-moz-background-size: cover
+	-o-background-size: cover
+	background-size: cover
+	width: 100%
+	margin: 0px
+
+.about-title
+	font-size: 3em
+	font-family: NexaRust
+	padding: 150px 0px 100px 0px
+	width: 100%
+	color: $white
+	margin-top: 50px
+	background-color: rgba(0, 0, 0, .45)
+
+.about-content-wrapper
+	width: 100%
+	text-align: center
+	color: $white
+
+.content-hero
+	width: 100%
+	background-color: $carbon
+	border-top: 8px solid $orange
+	border-bottom: 8px solid $orange
+
+.content-hero > h1
+	font-family: NexaRust
+	font-size: 2em
+
+.content-container
+	color: $white
+	font-size: 1.15em
+	width: 60%
+	margin-left: 20%
+	padding: 25px 0px
+
+.name
+	font-family: NexaRust
+
+.content-container > p
+	padding: 10px 0px
+
+p > span
+	font-family: NexaRust
+
+.source
+	color: $teal
+
+.source:hover
+	-webkit-transition: color .2s ease-out
+	-moz-transition: color .2s ease-out
+	-ms-transition: color .2s ease-out
+	transition: color .2s ease-out
+	color: $orange
+	cursor: pointer
+
+
+
+
+/* Media Queries */
+
+@media (max-width: 992px)
+
+	.home-hero-wrapper
+		padding: 125px 0px 50px 0px
+		margin-top: 25px
+
+	.hero-title
+		font-size: 2em
+
+	.about-container
+		margin-top: -50px
+

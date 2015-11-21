@@ -54,20 +54,22 @@
 	display: inline
 
 .search-container
-	border: 1px solid $teal
-	height: 100%
+	border: 2px solid $teal
 
-.protein-container, .protein-container-5
+.protein-container
 	font-family: NexaRust
 	padding: 20px 0px
 	margin: 0px
 	background-color: $carbon
 	color: $white
 	text-align: center
-	border-left: 1px solid $teal
-	border-right: 1px solid $teal
 
-.protein-container > form > input, .protein-container-5 > div > form > input
+.protein-container:nth-child(2)
+	border-right: 1px solid $teal
+	border-left: 1px solid $teal
+	min-height: 150vh
+
+.protein-container > form > input
 	color: $white
 	background-color: $teal
 	padding: 3px 20px
@@ -85,10 +87,6 @@
 	padding: 3px 20px
 	margin-top: 25px
 	font-size: .75em
-
-.protein-container-5
-	width: 20%
-	float: left
 
 .meal-search-grid
 	width: 100%
@@ -153,9 +151,83 @@
 	color: $white
 	border: 1px solid $white
 
+.dash-spacer
+	padding: 0px 10px
+
+.dash-search-bar
+	width: 100%
+	font-size: .9em
+	margin-top: 10px
+
+.dash-search-bar > form > input
+	margin-bottom: 10px
+	color: $carbon
+	width: 75%
+
+.dash-search-bar > form > input:nth-child(4)
+	background-color: $teal
+	color: $white
+	width: 25%
+	margin-bottom: 5px
+
+.dash-search-icon
+	color: $white
+
+.dash-search-icon:hover
+	color: $teal
+	-webkit-transition: color .3s ease-out
+	-moz-transition: color .3s ease-out
+	-ms-transition: color .3s ease-out
+	transition: color .3s ease-out
 
 
 
+/* Media Queries */
+
+
+@media (max-width: 992px)
+
+	.dashboard-hero
+		padding: 100px 0px 50px 0px
+		margin-top: 25px
+
+	.dashboard-title
+		font-size: 1.6em
+
+	.dashboard-meal-title
+		font-size: 0.85em
+		margin-top: 25px
+
+	.protein-container
+		padding: 10px 0px
+		border-bottom: 1px solid $teal
+
+	.protein-container:nth-child(2)
+		min-height: 0%
+
+	.protein-container > h4
+		font-size: .95em
+
+	.go-button
+		font-size: 1.25em
+
+	.meal-cover
+		padding: 75px 0px
+
+	.meal-cover > h3
+		font-size: 1.15em
+
+	.source-button
+		padding: 10px 25px
+		font-size: 0.9em
+
+	.ingredient-grid
+		padding: 30px 0px 30px 0px
+		font-size: 1em
+
+	.ingredient-grid > ul
+		padding: 0px
+		text-align: center
 
 
 

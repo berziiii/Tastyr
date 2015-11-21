@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151105204919) do
+ActiveRecord::Schema.define(version: 20151117204433) do
 
   create_table "allergies", force: :cascade do |t|
     t.datetime "created_at",       null: false
@@ -24,9 +24,10 @@ ActiveRecord::Schema.define(version: 20151105204919) do
   add_index "allergies", ["profile_id"], name: "index_allergies_on_profile_id"
 
   create_table "allergychoices", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
     t.string   "name"
+    t.string   "search_value"
   end
 
   create_table "dietchoices", force: :cascade do |t|

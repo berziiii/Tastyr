@@ -21,5 +21,30 @@ $('#register').on('click', function () {
   $('#modal').modal('show')
 });
 
+$('#register-responsive').on('click', function () {
+  $('#modal').modal('show')
+});
 
+$('#nav-hamburger').on('click', function () {
+	$('#nav-collapse').collapse('toggle');
+});
+
+$("#dash-search-icon").on("click", function () {
+
+});
+
+$("#dash-search-icon-1" ).on("click", function () {
+	$("#dash-search-1").removeClass("hide");
+	$("#dash-drop-1").addClass("hide");
+});
+
+$("#dash-search-icon-2" ).on("click", function () {
+	$("#dash-search-2").removeClass("hide");
+	$("#dash-drop-2").addClass("hide");
+});
+
+$("#dash-search-icon-3" ).on("click", function () {
+	$("#dash-search-3").removeClass("hide");
+	$("#dash-drop-3").addClass("hide");
+});
 

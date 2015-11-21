@@ -33,9 +33,9 @@
 
 .actions > input
 	background-color: rgba(0, 0, 0, 0)
-	font-color: $white
+	color: $white
 	padding: 5px 25px
-	font-size: 1.5em
+	font-size: 1em
 
 .actions > input:hover
 	background-color: $teal
@@ -73,9 +73,15 @@
 .password-wrapper > field
 	color: $carbon
 
-.actions > input
-	font-size: 1em
+.modal-dialog
+	margin-top: 5%
+
+.error
 	color: $white
+
+#error_explanation > h2
+	color: $white
+	font-size: 1.15em
 
 .password-links > a
 	display: none
@@ -86,9 +92,77 @@
 
 .sign-up-field
 	color: $carbon
-	padding: 15px 0px
+	padding: 20px 0px
+
+.user-container
+	width: 100%
+	min-height: 100vh
+	text-align: center
+	color: $white
+	padding-top: 100px
+
+.edit-title
+	font-size: 1.25em
+	margin-top: 25px
+	font-family: NexaRust
+
+.field-label
+	color: $white
+
+.field-input
+	color: $carbon
+
+.button_to > input
+	background-color: rgba(0, 0, 0, 0)
+	color: $white
+	padding: 5px 25px
+	font-size: 1em
+	margin-bottom: 40px
+
+.button_to > input:hover
+	background-color: $teal
+	-webkit-transition: background-color .2s ease-out
+	-moz-transition: background-color .2s ease-out
+	-ms-transition: background-color .2s ease-out
+	transition: background-color .2s ease-out
+
+.back
+	margin: 30px 0px
+
+.back > a
+	color: $white
+	padding: 5px 25px
+	font-size: 1em
+	margin: 50px 0px
+	background-color: $teal
+
+.back > a:hover
+	color: $white
+	-webkit-transition: background-color .2s ease-out
+	-moz-transition: background-color .2s ease-out
+	-ms-transition: background-color .2s ease-out
+	transition: background-color .2s ease-out
+	border: 1px solid $white
 
 
+/* Media Queries */
+
+@media (max-width: 992px)
+
+	.sign-in-wrapper
+		width: 100%
+		margin-left: 0px
+
+	.sign-in-form
+		padding-top: 40px
+		margin-top: 25px
+
+	.sign-in-form
+		width: 100%
+		font-size: 1.5em
+
+	.actions
+		font-size: 1.5em
 
 
 

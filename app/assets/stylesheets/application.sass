@@ -41,6 +41,12 @@
 	font-weight: normal,
 	font-style: normal
 
+@font-face
+	font-family: "Glyphicons-Regular"
+	src: url("Glyphicons/GLYPHICONS-Regular.woff") format("woff"),
+	font-weight: normal,
+	font-style: normal
+
 $black: #000
 $white: #fff
 $teal: #1abc9c
@@ -49,6 +55,21 @@ $orange: #FEA115
 $light-blue: #78B5C7
 $blue: #4596AB
 $dark-blue: #146C82
+
+.glyphicons
+	position: relative
+	top: 1px
+	display: inline-block
+	font-family: 'Glyphicons-Regular'
+	font-style: normal
+	font-weight: normal
+	line-height: 1
+	vertical-align: top
+	speak: none
+	-webkit-font-smoothing: antialiased
+
+.glyphicons-menu-hamburger:before
+	content: "\E517"
 
 .hide
 	display: none
@@ -139,6 +160,33 @@ body
 	color: $white
 	font-size: 1em
 
+#nav-hamburger
+	display: none
+	color: $carbon
+	font-size: 1.5em
+	position: absolute
+	right: 20px
+	top: 2px
+
+.responsive-menu
+	width: 100%
+	text-align: center
+	margin-top: 50px
+	padding: 0px
+	margin-bottom: -25px
+
+.responsive-nav-links
+	color: $white
+	width: 100%
+
+.responsive-nav-link, .responsive-sign-in
+	color: $white
+	font-size: 1.25em
+	border: 2px solid $white
+	width: 100%
+	display: block
+	padding: 20px 0px
+
 /* Applicaiton Styles */
 
 .footer-container
@@ -155,3 +203,25 @@ body
 
 .active
 	color: $orange
+
+/* Media Queries */
+
+@media (max-width: 1050px)
+
+	.nav-links
+		font-size: .9em
+
+@media (max-width: 992px)
+
+	body
+		font-size: 12pt
+
+	.nav-links
+		display: none
+
+	#nav-hamburger
+		display: block
+
+
+
+

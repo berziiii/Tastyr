@@ -1,32 +1,37 @@
 class DashboardController < ApplicationController
 
+	SEARCH_TYPES = {
+    :searchGO => "GO",
+    :searchNEW => "NEW RECIPE"
+  }
+
  	def new
 
  		@profile = current_user.profile
   	@allergychoices = @profile.allergychoices
   	@dietchoices = @profile.dietchoices
+  	@allergy_search = @allergychoices.map{ |choice| choice.search_value }.reduce(:+)
 
   	if params[:q]
-	  	@form_id = params[:form_id].to_i
 
-	 		require 'json'
+  		require 'json'
 			require 'rest_client'
 
-			query = params[:q].to_s
+	  	@form_id = params[:form_id].to_i
 
-			data = RestClient.get('http://api.yummly.com/v1/api/recipes?_app_id=02f876df&_app_key=6f8baa95c50b334480008f619846c04d&q='+query)
+			@query = params[:q].to_s
 
-			$recipes = JSON.parse(data)['matches']
+			@data = RestClient.get("http://api.yummly.com/v1/api/recipes?_app_id=02f876df&_app_key=6f8baa95c50b334480008f619846c04d&q=#{@query}#{@allergy_search}")
 
-			@recipe = $recipes.sample
+			@recipes = JSON.parse(@data)['matches']
 
-			@recipe_ID = @recipe['id']
+			@recipe = @recipes.sample
 
 			@recipe_name = @recipe['recipeName']
 
 			@ingredients = @recipe['ingredients']
 
-			@recipe_data = JSON.parse(RestClient.get('http://api.yummly.com/v1/api/recipe/'+@recipe_ID+'?_app_id=02f876df&_app_key=6f8baa95c50b334480008f619846c04d'))
+			@recipe_data = JSON.parse(RestClient.get("http://api.yummly.com/v1/api/recipe/#{@recipe['id']}?_app_id=02f876df&_app_key=6f8baa95c50b334480008f619846c04d"))
 
 			@recipe_link = @recipe_data['source']['sourceRecipeUrl'].to_s
 
@@ -35,6 +40,14 @@ class DashboardController < ApplicationController
 			@recipe_image_url = @recipe_image.first['hostedLargeUrl']
 
 			@ingredients = @recipe_data['ingredientLines']
+
+			session[params[:form_id]] = [ @recipe_name, @recipe_image_url, @recipe_link, @ingredients]
+
+		end
+
+	end
+
+end
 
 			# food2fork #
 		 #  query = params[:q].to_s
@@ -52,73 +65,3 @@ class DashboardController < ApplicationController
 			# @recipe_image_url = @recipe["image_url"]
 
 			# @recipe_link = @recipe["source_url"]
-
-			session[params[:form_id]] = [ @recipe_name, @recipe_image_url, @recipe_link, @ingredients]
-		end
-	end
-
-
-	 # 	@profile = current_user.profile
-  # 	@allergychoices = @profile.allergychoices
-  # 	@dietchoices = @profile.dietchoices
-
-  # 	@form_id = params[:form_id].to_i
-
- 	# 	require 'json'
-		# require 'rest_client'
-
-		# @recipe = $recipes.sample
-
-		# @recipe_ID = @recipe['id']
-
-		# @recipe_name = @recipe['recipeName']
-
-		# @ingredients = @recipe['ingredients']
-
-		# @recipe_data = JSON.parse(RestClient.get('http://api.yummly.com/v1/api/recipe/'+@recipe_ID+'?_app_id=02f876df&_app_key=6f8baa95c50b334480008f619846c04d'))
-
-		# @recipe_link = @recipe_data['source']['sourceRecipeUrl'].to_s
-
-		# @recipe_image = @recipe_data['images']
-
-		# @recipe_image_url = @recipe_image.first['hostedLargeUrl']
-
-		# @ingredients = @recipe_data['ingredientLines']
-
-		# session[params[:form_id]] = [ @recipe_name, @recipe_image_url, @recipe_link, @ingredients ]
-
- 	# def newRecipe
-
- 	# 	@profile = current_user.profile
-  # 	@allergychoices = @profile.allergychoices
-  # 	@dietchoices = @profile.dietchoices
-
-  # 	@form_id = params[:form_id].to_i
-
- 	# 	require 'json'
-		# require 'rest_client'
-
-		# @recipe = $recipes.sample
-
-		# @recipe_ID = @recipe['id']
-
-		# @recipe_name = @recipe['recipeName']
-
-		# @ingredients = @recipe['ingredients']
-
-		# @recipe_data = JSON.parse(RestClient.get('http://api.yummly.com/v1/api/recipe/'+@recipe_ID+'?_app_id=02f876df&_app_key=6f8baa95c50b334480008f619846c04d'))
-
-		# @recipe_link = @recipe_data['source']['sourceRecipeUrl'].to_s
-
-		# @recipe_image = @recipe_data['images']
-
-		# @recipe_image_url = @recipe_image.first['hostedLargeUrl']
-
-		# @ingredients = @recipe_data['ingredientLines']
-
-		# session[params[:form_id]] = [ @recipe_name, @recipe_image_url, @recipe_link, @ingredients ]
-
-
- 	# end
-
-end

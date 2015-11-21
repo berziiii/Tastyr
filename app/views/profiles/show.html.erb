@@ -2,18 +2,15 @@
 	<div class="profile-wrapper">
 		<h1 class="profile-title">Profile</h1>
 		<div class="row">
-			<div class="col-lg-5 col-lg-offset-1 col-md-5 col-md-offset-1 col-sm-4 col-sm-offset-1 col-xs-12 profile-column">
+			<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 profile-column">
 				<h1 class="profile-form-title">Profile Information</h1>
 				<div class="profile-field">
 					<div>User Name: <span class="profile-info"><%= @user.email %></span></div>
 					<div>First Name: <span class="profile-info"><%= @profile.first_name %></span></div>
 					<div>Last Name: <span class="profile-info"><%= @profile.last_name %></span></div>
 				</div>
-				<a class="edit-button" href="<%= edit_profile_path(current_user.profile) %>">
-					Edit Information
-				</a>
 			</div>
-			<div class="col-lg-5 col-md-5 col-sm-5 col-xs-12 profile-column">
+			<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 profile-column">
 				<h1 class="profile-form-title">Allergies</h1>
 				<div class="profile-allergies-container">
 					<div class="profile-allergies-wrapper">
@@ -32,13 +29,25 @@
 							<% end %>
 						</div>
 					</div>
-					<div class="allergies-button">
-						<a class="edit-button" href="<%= new_allergy_path %>">
-							New Allergy +
-						</a>
-					</div>
 				</div>
 			</div>
+		</div>
+		<div class="row">
+			<div class="col-lg-6 col-md-6 col-sm-6 allergies-button">
+				<a class="edit-button" href="<%= edit_profile_path(current_user.profile) %>">
+					Edit Information
+				</a>
+			</div>
+			<div class="col-lg-6 col-md-6 col-sm-6 allergies-button">
+				<a class="edit-button" href="<%= new_allergy_path %>">
+					New Allergy +
+				</a>
+			</div>
+		</div>
+		<div class="col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3 allergies-button">
+			<a class="edit-button" href="<%= edit_user_registration_path %>">
+				Edit User Information
+			</a>
 		</div>
 	</div>
 </div>

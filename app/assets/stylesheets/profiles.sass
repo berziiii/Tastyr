@@ -10,6 +10,16 @@
 	font-size: 12pt
 	background-color: rgba(0, 0, 0, .1)
 
+.new-profile-container
+	z-index: 10000
+	position: fixed
+	width: 100%
+	min-height: 100vh
+	background-color: $carbon
+	color: $white
+	text-align: center
+	font-size: 12pt
+
 .profile-wrapper
 	width: 75%
 	margin-left: 12.5%
@@ -36,7 +46,7 @@
 .profile-field
 	padding: 15px 0px
 	color: $carbon
-	text-align: left
+	text-align: center
 
 .profile-field > div
 	color: $white
@@ -65,6 +75,7 @@
 .profile-allergies-wrapper
 	margin-left: 25%
 	width: 50%
+	margin-top: 35px
 
 .allergy-field
 	float: left
@@ -91,14 +102,15 @@
 	-ms-transition: background-color .2s ease-out
 	transition: background-color .2s ease-out
 
+.update-profile
+	margin: 15px 0px
+
 .profile-show
 	color: $white
 	text-align: center
 
 .allergies-button
-	width: 30%
-	margin-left: 35%
-	margin-top: 50px
+	margin: 25px 0px
 
 .edit-button
 	padding: 5px 10px
@@ -119,6 +131,43 @@ ul
 
 
 
+/* Media Queries */
+
+@media (max-width: 992px)
+
+	.profile-container
+		margin-top: 25px
+
+	.profile-wrapper
+		width: 75%
+		margin-left: 12.5%
+		padding-top: 75px
+
+	.profile-title
+		font-size: 1.5em
+
+	.profile-form-title
+		font-size: 1.25em
+
+	.profile-field
+		font-size: .75em
+		padding: 20px 0px 30px 0px
+
+	.profile-info
+		font-size: 1.15em
+
+	.profile-allergies-wrapper
+		margin-left: 12.5%
+		width: 75%
+
+	.allergy-field
+		float: left
+		width: 50%
+
+	.remove-fields
+		margin: 0px 0px
+
+	.allergies-button
 
 
 

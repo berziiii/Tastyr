@@ -3,18 +3,6 @@
 		<div class="dashboard-hero">
 			<h1 class="dashboard-title">Welcome back <%= @profile.first_name %></h1>
 			<h2 class="dashboard-meal-title">PLAN THOSE TASTY<span class="R">R</span> MEALS FOR THE WEEK</h2>
-			<!-- <div class="row">
-				<div class="col-lg-4 col-lg-offset-4 col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3 meal-choice-container">
-					<div class="row">
-						<div class="col-lg-6 col-md-6 col-sm-6">
-						<a id="meal-3-button"><span id="meal-3-text" class="meal-choice-box active">3</span></a>
-						</div>
-						<div class="col-lg-6 col-md-6 col-sm-6">
-						<a id="meal-5-button" class=""><span id="meal-5-text" class="meal-choice-box">5</span></a>
-						</div>
-					</div>
-				</div>
-			</div> -->
 		</div>
 	</div>
 	<div id="meal-3" class="dashboard-meal-container">
@@ -22,13 +10,26 @@
 			<div class="col-lg-4 col-md-4 col-sm-12 protein-container">
 				<h4>Pick your meal</h4>
 				<div class="form-container">
-				<%= form_tag '/dashboard', method: :get do %>
-					<%= select_tag(:q, options_for_select([['', ""],['Chicken', "Chicken"], ['Beef', "Beef"], ['Pork', "Pork"], ['Fish', 'Fish'], ['Game', 'Game'], ['Lamb', 'Lamb'], ['Pasta', 'Pasta'], ['Vegetarian', 'Vegetarian'], ['Paleo', 'Paleo'], ['Vegan', 'Vegan']], :selected => params[:q])) %>
-					<%= hidden_field_tag :form_id, 1%>
-					<div class="go-button">
-						<%= submit_tag "Go", name: nil %>
+					<div id="dash-drop-1">
+					<%= form_tag '/dashboard', method: :get do %>
+						<%= select_tag(:q, options_for_select([['', ""],['Chicken', "Chicken"], ['Beef', "Beef"], ['Pork', "Pork"], ['Fish', 'Fish'], ['Lamb', 'Lamb'], ['Pasta', 'Pasta'], ['Vegetable', 'Vegetable'], ['Paleo', 'Paleo'], ['Vegan', 'Vegan']], :selected => params[:q])) %>
+						<%= hidden_field_tag :form_id, 1%>
+						<span class="dash-spacer"> OR </span>
+						<a id="dash-search-icon-1" class="dash-search-icon">
+							<span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+						</a>
+						<div class="go-button">
+							<%= submit_tag "Go", name: nil %>
+						</div>
+					<% end %>
 					</div>
-				<% end %>
+					<div  id="dash-search-1" class="dash-search-bar hide">
+						<%= form_tag '/dashboard', method: :get  do %>
+							<%= search_field_tag :q, params[:q] %>
+							<%= hidden_field_tag :form_id, 1%>
+							<%= submit_tag "Go", name: nil %>
+						<% end %>
+					</div>
 				</div>
 				<% if session[1]%>
 				<div class="meal-search-grid">
@@ -36,11 +37,6 @@
 						<div class="meal-cover">
 							<h3><%= session[1][0] %></h3>
 						</div>
-						<a class="new-recipe-button">
-							<%= form_tag '/dashboard' do %>
-								<%= submit_tag "+ RECIPE" %>
-							<% end %>
-						</a>
 					</div>
 					<a class="source-button" href="<%= session[1][2] %>" target="_blank">
 						VIEW RECIPE
@@ -59,13 +55,26 @@
 			<div class="col-lg-4 col-md-4 col-sm-12 protein-container">
 				<h4>Pick your meal</h4>
 				<div class="form-container">
-				<%= form_tag '/dashboard', method: :get do %>
-					<%= select_tag(:q, options_for_select([['', ""],['Chicken', "Chicken"], ['Beef', "Beef"], ['Pork', "Pork"], ['Fish', 'Fish'], ['Game', 'Game'], ['Lamb', 'Lamb'], ['Pasta', 'Pasta'], ['Vegetarian', 'Vegetarian'], ['Paleo', 'Paleo'], ['Vegan', 'Vegan']], :selected => params[:q])) %>
-					<%= hidden_field_tag :form_id, 2%>
-					<div class="go-button">
-						<%= submit_tag "Go", name: nil %>
+					<div id="dash-drop-2">
+					<%= form_tag '/dashboard', method: :get do %>
+						<%= select_tag(:q, options_for_select([['', ""],['Chicken', "Chicken"], ['Beef', "Beef"], ['Pork', "Pork"], ['Fish', 'Fish'], ['Lamb', 'Lamb'], ['Pasta', 'Pasta'], ['Vegetable', 'Vegetable'], ['Paleo', 'Paleo'], ['Vegan', 'Vegan']], :selected => params[:q])) %>
+						<%= hidden_field_tag :form_id, 2%>
+						<span class="dash-spacer"> OR </span>
+						<a id="dash-search-icon-2" class="dash-search-icon">
+							<span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+						</a>
+						<div class="go-button">
+							<%= submit_tag "Go", name: nil %>
+						</div>
+					<% end %>
 					</div>
-				<% end %>
+					<div  id="dash-search-2" class="dash-search-bar hide">
+						<%= form_tag '/dashboard', method: :get  do %>
+							<%= search_field_tag :q, params[:q] %>
+							<%= hidden_field_tag :form_id, 2%>
+							<%= submit_tag "Go", name: nil %>
+						<% end %>
+					</div>
 				</div>
 				<% if session[2]%>
 				<div class="meal-search-grid">
@@ -73,11 +82,6 @@
 						<div class="meal-cover">
 							<h3><%= session[2][0] %></h3>
 						</div>
-						<a class="new-recipe-button">
-							<%= form_tag '/dashboard' do %>
-								<%= submit_tag "+ RECIPE" %>
-							<% end %>
-						</a>
 					</div>
 					<a class="source-button" href="<%= session[2][2] %>" target="_blank">
 						VIEW RECIPE
@@ -96,13 +100,26 @@
 			<div class="col-lg-4 col-md-4 col-sm-12 protein-container">
 				<h4>Pick your meal</h4>
 				<div class="form-container">
-				<%= form_tag '/dashboard', method: :get do %>
-					<%= select_tag(:q, options_for_select([['', ""],['Chicken', "Chicken"], ['Beef', "Beef"], ['Pork', "Pork"], ['Fish', 'Fish'], ['Game', 'Game'], ['Lamb', 'Lamb'], ['Pasta', 'Pasta'], ['Vegetarian', 'Vegetarian'], ['Paleo', 'Paleo'], ['Vegan', 'Vegan']], :selected => params[:q])) %>
-					<%= hidden_field_tag :form_id, 3%>
-					<div class="go-button">
-						<%= submit_tag "Go", name: nil %>
+					<div id="dash-drop-3">
+					<%= form_tag '/dashboard', method: :get do %>
+						<%= select_tag(:q, options_for_select([['', ""],['Chicken', "Chicken"], ['Beef', "Beef"], ['Pork', "Pork"], ['Fish', 'Fish'], ['Lamb', 'Lamb'], ['Pasta', 'Pasta'], ['Vegetable', 'Vegetable'], ['Paleo', 'Paleo'], ['Vegan', 'Vegan']], :selected => params[:q])) %>
+						<%= hidden_field_tag :form_id, 3%>
+						<span class="dash-spacer"> OR </span>
+						<a id="dash-search-icon-3" class="dash-search-icon">
+							<span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+						</a>
+						<div class="go-button">
+							<%= submit_tag "Go", name: nil %>
+						</div>
+					<% end %>
 					</div>
-				<% end %>
+					<div  id="dash-search-3" class="dash-search-bar hide">
+						<%= form_tag '/dashboard', method: :get  do %>
+							<%= search_field_tag :q, params[:q] %>
+							<%= hidden_field_tag :form_id, 3%>
+							<%= submit_tag "Go", name: nil %>
+						<% end %>
+					</div>
 				</div>
 				<% if session[3]%>
 				<div class="meal-search-grid">
@@ -110,11 +127,6 @@
 						<div class="meal-cover">
 							<h3><%= session[3][0] %></h3>
 						</div>
-						<a class="new-recipe-button">
-							<%= form_tag '/dashboard' do %>
-								<%= submit_tag "+ RECIPE" %>
-							<% end %>
-						</a>
 					</div>
 					<a class="source-button" href="<%= session[3][2] %>" target="_blank">
 						VIEW RECIPE

@@ -5,12 +5,19 @@
       <h2 class="sign-in-title">Tasty<span class="R">r</span></h2>
 
       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+
         <div class="sign-in-field">
           <%= f.email_field :email, autofocus: true, :placeholder => "User Email" %>
         </div>
 
         <div class="sign-in-field">
           <%= f.password_field :password, autocomplete: "off", :placeholder => "Password" %>
+        </div>
+
+        <div class="error-message">
+          <% flash.each do |name, msg| %>
+            <%= content_tag :div, msg, id: "flash_#{name}" %>
+          <% end %>
         </div>
 
         <% if devise_mapping.rememberable? -%>
