@@ -5,3 +5,5 @@ class Profile < ActiveRecord::Base
 	has_many :diets
 	has_many :dietchoices, through: :diets
 end
+
+

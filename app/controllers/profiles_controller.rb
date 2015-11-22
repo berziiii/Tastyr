@@ -19,7 +19,7 @@ class ProfilesController < ApplicationController
 		@user = current_user
  		@profile = current_user.profile
   	@allergychoices = @profile.allergychoices
-  	@allergy = Allergy.where(params[:profile_id] == @profile.id)
+  	@allergies = Allergy.where(:profile_id => @profile.id )
 
 	end
 

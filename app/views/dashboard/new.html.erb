@@ -1,7 +1,7 @@
 <div class="dashboard-container">
 	<div class="dashboard-hero-wrapper">
 		<div class="dashboard-hero">
-			<h1 class="dashboard-title">Welcome back <%= @profile.first_name %></h1>
+			<h1 class="dashboard-title">Welcome <%= @profile.first_name %></h1>
 			<h2 class="dashboard-meal-title">PLAN THOSE TASTY<span class="R">R</span> MEALS FOR THE WEEK</h2>
 		</div>
 	</div>
@@ -12,7 +12,7 @@
 				<div class="form-container">
 					<div id="dash-drop-1">
 					<%= form_tag '/dashboard', method: :get do %>
-						<%= select_tag(:q, options_for_select([['', ""],['Chicken', "Chicken"], ['Beef', "Beef"], ['Pork', "Pork"], ['Fish', 'Fish'], ['Lamb', 'Lamb'], ['Pasta', 'Pasta'], ['Vegetable', 'Vegetable'], ['Paleo', 'Paleo'], ['Vegan', 'Vegan']], :selected => params[:q])) %>
+						<%= select_tag(:q, options_for_select([['', ""],['Chicken', "Chicken"], ['Beef', "Beef"], ['Pork', "Pork"], ['Fish', 'Fish'], ['Lamb', 'Lamb'], ['Pasta', 'Pasta'], ['Vegetable', 'Vegetable'], ['Paleo', 'Paleo'], ['Vegan', 'Vegan']])) %>
 						<%= hidden_field_tag :form_id, 1%>
 						<span class="dash-spacer"> OR </span>
 						<a id="dash-search-icon-1" class="dash-search-icon">

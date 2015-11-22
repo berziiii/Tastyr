@@ -22,11 +22,11 @@
 							<% end %>
 						</div>
 						<div class="allergy-field">
-							<% @allergy.each do |a| %>
-								<div class="remove-fields">
-									<span class="allergy-info"><%= link_to 'Remove', allergy_path(a.id), :method => :delete %></span>
-								</div>
-							<% end %>
+						<% @allergies.each do |a| %>
+							<div class="remove-fields">
+								<span class="allergy-info"><%= link_to 'Remove', allergy_path(a.id), :method => :delete %></span>
+							</div>
+						<% end %>
 						</div>
 					</div>
 				</div>

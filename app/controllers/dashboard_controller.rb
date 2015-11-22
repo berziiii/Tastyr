@@ -41,7 +41,7 @@ class DashboardController < ApplicationController
 
 			@ingredients = @recipe_data['ingredientLines']
 
-			session[params[:form_id]] = [ @recipe_name, @recipe_image_url, @recipe_link, @ingredients]
+			session[params[:form_id]] = [ @recipe_name, @recipe_image_url, @recipe_link, @ingredients, @query]
 
 		end
 
