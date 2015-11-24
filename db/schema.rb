@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20151117204433) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "allergies", force: :cascade do |t|
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
@@ -20,8 +23,8 @@ ActiveRecord::Schema.define(version: 20151117204433) do
     t.integer  "allergychoice_id"
   end
 
-  add_index "allergies", ["allergychoice_id"], name: "index_allergies_on_allergychoice_id"
-  add_index "allergies", ["profile_id"], name: "index_allergies_on_profile_id"
+  add_index "allergies", ["allergychoice_id"], name: "index_allergies_on_allergychoice_id", using: :btree
+  add_index "allergies", ["profile_id"], name: "index_allergies_on_profile_id", using: :btree
 
   create_table "allergychoices", force: :cascade do |t|
     t.datetime "created_at",   null: false
@@ -43,8 +46,8 @@ ActiveRecord::Schema.define(version: 20151117204433) do
     t.integer  "dietchoice_id"
   end
 
-  add_index "diets", ["dietchoice_id"], name: "index_diets_on_dietchoice_id"
-  add_index "diets", ["profile_id"], name: "index_diets_on_profile_id"
+  add_index "diets", ["dietchoice_id"], name: "index_diets_on_dietchoice_id", using: :btree
+  add_index "diets", ["profile_id"], name: "index_diets_on_profile_id", using: :btree
 
   create_table "profiles", force: :cascade do |t|
     t.string   "first_name"
@@ -54,7 +57,7 @@ ActiveRecord::Schema.define(version: 20151117204433) do
     t.integer  "user_id"
   end
 
-  add_index "profiles", ["user_id"], name: "index_profiles_on_user_id"
+  add_index "profiles", ["user_id"], name: "index_profiles_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -71,7 +74,12 @@ ActiveRecord::Schema.define(version: 20151117204433) do
     t.datetime "updated_at",                          null: false
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "allergies", "allergychoices"
+  add_foreign_key "allergies", "profiles"
+  add_foreign_key "diets", "dietchoices"
+  add_foreign_key "diets", "profiles"
+  add_foreign_key "profiles", "users"
 end
