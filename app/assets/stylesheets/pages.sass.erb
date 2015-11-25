@@ -2,7 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-@import "application.sass"
+@import "application"
 
 .home-container, .choice-container
 	width: 100%
@@ -10,7 +10,7 @@
 
 .home-hero-container
 	width: 100%
-	background: url(fresh-home.png) no-repeat center
+	background: url(<%= asset_path('fresh-home.png') %>) no-repeat center
 	-webkit-background-size: cover
 	-moz-background-size: cover
 	-o-background-size: cover
@@ -61,7 +61,7 @@
 	font-family: NexaRust
 
 [data-search-id="1"]
-	background: url(chicken.png) no-repeat center
+	background: url(<%= asset_path('chicken.png') %>) no-repeat center
 	-webkit-background-size: cover
 	-moz-background-size: cover
 	-o-background-size: cover
@@ -76,7 +76,7 @@
 		color: $white
 
 [data-search-id="2"]
-	background: url(beef.png) no-repeat center
+	background: url(<%= asset_path('beef.png') %>) no-repeat center
 	-webkit-background-size: cover
 	-moz-background-size: cover
 	-o-background-size: cover
@@ -91,7 +91,7 @@
 		color: $white
 
 [data-search-id="3"]
-	background: url(pork.png) no-repeat center
+	background: url(<%= asset_path('pork.png') %>) no-repeat center
 	-webkit-background-size: cover
 	-moz-background-size: cover
 	-o-background-size: cover
@@ -106,7 +106,7 @@
 		color: $white
 
 [data-search-id="4"]
-	background: url(fish.png) no-repeat center
+	background: url(<%= asset_path('fish.png') %>) no-repeat center
 	-webkit-background-size: cover
 	-moz-background-size: cover
 	-o-background-size: cover
@@ -121,7 +121,7 @@
 		color: $white
 
 [data-search-id="5"]
-	background: url(pasta-2.png) no-repeat center
+	background: url(<%= asset_path('pasta-2.png') %>) no-repeat center
 	-webkit-background-size: cover
 	-moz-background-size: cover
 	-o-background-size: cover
@@ -136,7 +136,7 @@
 		color: $white
 
 [data-search-id="6"]
-	background: url(veggie.png) no-repeat center
+	background: url(<%= asset_path('veggie.png') %>) no-repeat center
 	-webkit-background-size: cover
 	-moz-background-size: cover
 	-o-background-size: cover
@@ -161,7 +161,7 @@
 
 
 .about-hero
-	background: url(fresh-about.png) no-repeat center
+	background: url(<%= asset_path('fresh-about.png') %>) no-repeat center
 	-webkit-background-size: cover
 	-moz-background-size: cover
 	-o-background-size: cover

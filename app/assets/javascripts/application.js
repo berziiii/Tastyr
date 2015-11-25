@@ -48,3 +48,7 @@ $("#dash-search-icon-3" ).on("click", function () {
 	$("#dash-drop-3").addClass("hide");
 });
 
+$('search-bar').on('click', fucntion(){
+	$('.search-bar input[type=search]').val($('.search-bar input[type=search]').val().replace(/ /g, '+'));
+});
+
