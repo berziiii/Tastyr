@@ -29,10 +29,6 @@ $('#nav-hamburger').on('click', function () {
 	$('#nav-collapse').collapse('toggle');
 });
 
-$("#dash-search-icon").on("click", function () {
-
-});
-
 $("#dash-search-icon-1" ).on("click", function () {
 	$("#dash-search-1").removeClass("hide");
 	$("#dash-drop-1").addClass("hide");
@@ -48,7 +44,7 @@ $("#dash-search-icon-3" ).on("click", function () {
 	$("#dash-drop-3").addClass("hide");
 });
 
-$('search-bar').on('click', fucntion(){
-	$('.search-bar input[type=search]').val($('.search-bar input[type=search]').val().replace(/ /g, '+'));
-});
+// $('search-bar').on('click', fucntion() {
+// 	$('.search-bar input[type=search]').val($('.search-bar input[type=search]').val().replace(/ /g, '+'));
+// });
 
