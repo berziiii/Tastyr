@@ -1,9 +1,9 @@
 class DashboardController < ApplicationController
 
-	SEARCH_TYPES = {
-    :searchGO => "GO",
-    :searchNEW => "NEW RECIPE"
-  }
+	# SEARCH_TYPES = {
+ #    :searchGO => "GO",
+ #    :searchNEW => "NEW RECIPE"
+ #  }
 
  	def new
 
@@ -19,7 +19,7 @@ class DashboardController < ApplicationController
 
 	  	@form_id = params[:form_id].to_i
 
-			@query = params[:q].to_s
+			@query = params[:q].gsub(/ /, "%20").to_s
 
 			@data = RestClient.get("http://api.yummly.com/v1/api/recipes?_app_id=02f876df&_app_key=6f8baa95c50b334480008f619846c04d&q=#{@query}#{@allergy_search}")
 
