@@ -7,4 +7,13 @@ class UsersController < ApplicationController
 		redirect_to root
 	end
 
+	def destroy
+		@user = current_user
+    @user.find(params[:id]).destroy
+
+    if @user.destroy
+        redirect_to root_url, notice: "User deleted."
+    end
+	end
+
 end

@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   get '/about' => 'pages#about'
   get '/search' => 'search#new'
   get '/dashboard' => 'dashboard#new'
+  match 'users/:id' => 'users#destroy', :via => :delete, :as => :admin_destroy_user
 
   # get '/profile' => 'profiles#show'
 

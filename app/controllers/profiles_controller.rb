@@ -53,6 +53,11 @@ class ProfilesController < ApplicationController
 
 	end
 
+	def destroy
+		redirect_to "/"
+	end
+
+
 private
 
 	def get_safe_params params
