@@ -57,38 +57,38 @@
 					</div>
 					<a id="nav-hamburger"><span class="glyphicons glyphicons-menu-hamburger"></span></span></a>
 				</div>
+				<div id="nav-collapse" class="responsive-menu collapse">
+					<div class="responsive-nav-links">
+						<a class="responsive-nav-link" href="/about">
+					    	About
+						</a>
+						<% if user_signed_in? %>
+							<a class="responsive-nav-link" href="<%= profile_path(current_user) %>">
+								Profile
+							</a>
+							<a class="responsive-nav-link" href="/dashboard">
+								Planner
+							</a>
+							<a class="search responsive-nav-link" href="<%= search_url %>">
+								<span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+							</a>
+				      		<%= link_to "Sign Out", destroy_user_session_path, 	method: :delete, :class => "responsive-nav-link" %>
+					    <% else %>
+				    		<a id="register-responsive" class="responsive-nav-link">
+				    			Register
+							</a>
+							<a class="search responsive-nav-link" href="<%= search_url %>">
+								<span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+							</a>
+							<a class="responsive-sign-in" href="<%= new_user_session_url %>">
+								Sign In
+							</a>
+					    <% end %>
+					</div>
+				</div>
 			</div>
 		</nav>
 	</header>
-	<div id="nav-collapse" class="responsive-menu collapse">
-		<div class="responsive-nav-links">
-			<a class="responsive-nav-link" href="/about">
-		    	About
-			</a>
-			<% if user_signed_in? %>
-				<a class="responsive-nav-link" href="<%= profile_path(current_user) %>">
-					Profile
-				</a>
-				<a class="responsive-nav-link" href="/dashboard">
-					Planner
-				</a>
-				<a class="search responsive-nav-link" href="<%= search_url %>">
-					<span class="glyphicon glyphicon-search" aria-hidden="true"></span>
-				</a>
-	      		<%= link_to "Sign Out", destroy_user_session_path, 	method: :delete, :class => "responsive-nav-link" %>
-		    <% else %>
-	    		<a id="register-responsive" class="responsive-nav-link">
-	    			Register
-				</a>
-				<a class="search responsive-nav-link" href="<%= search_url %>">
-					<span class="glyphicon glyphicon-search" aria-hidden="true"></span>
-				</a>
-				<a class="responsive-sign-in" href="<%= new_user_session_url %>">
-					Sign In
-				</a>
-		    <% end %>
-		</div>
-	</div>
 	<div id="modal" class="modal fade">
 		<div class="modal-dialog">
 			<div class="modal-content">
