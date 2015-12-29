@@ -21,7 +21,7 @@ class DashboardController < ApplicationController
 
 			@query = params[:q].gsub(/ /, "%20").to_s
 
-			@data = RestClient.get("http://api.yummly.com/v1/api/recipes?_app_id=02f876df&_app_key=6f8baa95c50b334480008f619846c04d&q=#{@query}#{@allergy_search}")
+			@data = RestClient.get("http://api.yummly.com/v1/api/recipes?_app_id="+ENV["YUMMLY_API_ID"]+"&_app_key="+ENV["YUMMLY_API_KEY"]+"&q=#{@query}#{@allergy_search}")
 
 			@recipes = JSON.parse(@data)['matches']
 

@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'devise'
+gem 'dotenv-rails', :groups => [:development, :test]
 gem 'rest-client'
 gem 'bootstrap-sass', '~> 3.2.0'
 gem 'autoprefixer-rails'
