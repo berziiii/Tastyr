@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+ruby "2.2.3"
 gem 'devise'
 gem 'dotenv-rails', :groups => [:development, :test]
 gem 'rest-client'
@@ -53,4 +54,3 @@ group :production do
      gem 'rails_12factor'
      gem 'puma'
 end
-
