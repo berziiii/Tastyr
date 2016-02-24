@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-# ruby "2.2.3"
+ruby "2.2.3"
 
 gem 'devise'
 gem 'dotenv-rails', :groups => [:development, :test]
@@ -11,7 +11,6 @@ gem 'autoprefixer-rails'
 gem 'rails', '4.2.4'
 # # Use Postgres as the database for Active Record
 gem 'pg'
-# gem 'sqlite3'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
