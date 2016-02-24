@@ -36,7 +36,7 @@ class DashboardController < ApplicationController
 
 			@ingredients = @recipe['ingredients']
 
-			@recipe_data = JSON.parse(RestClient.get("http://api.yummly.com/v1/api/recipe/#{@recipe['id']}?_app_id=02f876df&_app_key=6f8baa95c50b334480008f619846c04d"))
+			@recipe_data = JSON.parse(RestClient.get("http://api.yummly.com/v1/api/recipe/#{@recipe['id']}?_app_id="+ENV["YUMMLY_API_ID"]+"&_app_key="+ENV["YUMMLY_API_KEY"]))
 
 			@recipe_link = @recipe_data['source']['sourceRecipeUrl'].to_s
 
