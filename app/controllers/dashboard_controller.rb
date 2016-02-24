@@ -20,9 +20,9 @@ class DashboardController < ApplicationController
 
 	  	@form_id = params[:form_id].to_i
 
-	  	# @search= params[:q]
+	  	@search= params[:q]
 
-			@query = URI.encode(params[:q]).to_s
+			@query = URI.encode("#{@search}").to_s
 
 			# @query = params[:q].gsub(/ /, "%20").to_s
 
