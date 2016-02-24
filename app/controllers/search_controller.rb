@@ -8,9 +8,10 @@ class SearchController < ApplicationController
 
 			@query = params[:q].gsub(/ /, "%20").to_s
 
-			RestClient.get("http://food2fork.com/api/search?key="+ENV["FOOD2FORK_API_KEY"]+"&q=#{@query}")
+			@data = RestClient.get("http://food2fork.com/api/search?key="+ENV["FOOD2FORK_API_KEY"]+"&q=#{@query}")
 
-			@recipes = JSON.parse(data)['recipes']
+			@recipes = JSON.parse(@data)['recipes']
+
   	end
   end
 end
