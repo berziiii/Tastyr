@@ -15,6 +15,8 @@ class SearchController < ApplicationController
 
 			@recipes = JSON.parse(@data)['recipes']
 
+			@receipes.gsub('&amp;', '&')
+
   	end
   end
 end
