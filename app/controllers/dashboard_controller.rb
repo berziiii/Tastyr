@@ -19,7 +19,11 @@ class DashboardController < ApplicationController
 
 	  	@form_id = params[:form_id].to_i
 
-			@query = params[:q].gsub(/ /, "%20").to_s
+	  	@search= params[:q]
+
+			@query = URI.encode(@search).to_s
+
+			# @query = params[:q].gsub(/ /, "%20").to_s
 
 			@data = RestClient.get("http://api.yummly.com/v1/api/recipes?_app_id="+ENV["YUMMLY_API_ID"]+"&_app_key="+ENV["YUMMLY_API_KEY"]+"&q=#{@query}#{@allergy_search}")
 
