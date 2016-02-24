@@ -9,7 +9,7 @@ class SearchController < ApplicationController
 
 			@search= params[:q]
 
-			@query = URI.encode(@search).to_s
+			@query = URI.encode(params[:q]).to_s
 			# .gsub(/ /, "%20").to_s
 
 			@data = RestClient.get("http://food2fork.com/api/search?key="+ENV["FOOD2FORK_API_KEY"]+"&q=#{@query}")
