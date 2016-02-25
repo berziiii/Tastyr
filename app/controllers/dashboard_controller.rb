@@ -32,9 +32,9 @@ class DashboardController < ApplicationController
 
 			@recipe = @recipes.sample
 
-			@recipe_name = @recipe['recipeName']
+			@recipe_name = @recipe['recipeName'].gsub('&amp;', '&')
 
-			@ingredients = @recipe['ingredients']
+			@ingredients = @recipe['ingredients'].gsub('&amp;', '&')
 
 			@recipe_data = JSON.parse(RestClient.get("http://api.yummly.com/v1/api/recipe/#{@recipe['id']}?_app_id="+ENV["YUMMLY_API_ID"]+"&_app_key="+ENV["YUMMLY_API_KEY"]))
 
@@ -44,7 +44,7 @@ class DashboardController < ApplicationController
 
 			@recipe_image_url = @recipe_image.first['hostedLargeUrl']
 
-			@ingredients = @recipe_data['ingredientLines']
+			@ingredients = @recipe_data['ingredientLines'].gsub('&amp;', '&')
 
 			session[params[:form_id]] = [ @recipe_name, @recipe_image_url, @recipe_link, @ingredients, @query]
 
