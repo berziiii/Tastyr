@@ -8,19 +8,19 @@ class DashboardController < ApplicationController
  	def new
 
  		@profile = current_user.profile
-  	@allergychoices = @profile.allergychoices
-  	@dietchoices = @profile.dietchoices
-  	@allergy_search = @allergychoices.map{ |choice| choice.search_value }.reduce(:+)
+		@allergychoices = @profile.allergychoices
+		@dietchoices = @profile.dietchoices
+		@allergy_search = @allergychoices.map{ |choice| choice.search_value }.reduce(:+)
 
-  	if params[:q]
+  		if params[:q]
 
-  		require 'json'
+			require 'json'
 			require 'rest_client'
 			require 'uri'
 
-	  	@form_id = params[:form_id].to_i
+			@form_id = params[:form_id].to_i
 
-	  	@search= params[:q]
+			@search= params[:q]
 
 			@query = URI.encode("#{@search}").to_s
 
