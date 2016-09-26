@@ -53,20 +53,3 @@ class DashboardController < ApplicationController
 	end
 
 end
-
-			# food2fork #
-		 #  query = params[:q].to_s
-
-		 #  diet = params[:d].to_s
-
-			# data = RestClient.get('http://food2fork.com/api/search?key=76a1bb1a21eb14d6f5569039fa0e1fe8&q='+diet+query)
-
-			# @recipes = JSON.parse(data)['recipes']
-
-			# @recipe = @recipes.sample
-
-			# @recipe_name = @recipe["title"]
-
-			# @recipe_image_url = @recipe["image_url"]
-
-			# @recipe_link = @recipe["source_url"]
